@@ -27,5 +27,5 @@ Work in progress - concept art, environment prototyping, and interaction design 
 
 ## Credits
 
-Concept & photography: [MadMarie](https://www.flickr.com/photos/38623641@N05/)
-VR development & technical direction: [Astrofra](https://github.com/astrofra/)
+- Concept & photography: [MadMarie](https://www.flickr.com/photos/38623641@N05/)
+- VR development & technical direction: [Astrofra](https://github.com/astrofra/)
