@@ -171,6 +171,8 @@ void main() {
 
 	vec3 color = vec3(0.0, 0.0, 0.0);
 
+	float irradiance_factor = 1.0; // how much the spotlight's shadowmap can dim the radiance ?
+
 	// jitter
 #if FORWARD_PIPELINE_AAA
 	vec4 jitter = texture2D(uNoiseMap, mod(gl_FragCoord.xy, vec2(64, 64)) / vec2(64, 64));
@@ -211,7 +213,9 @@ void main() {
 		float attenuation = LightAttenuation(L, uLightDir[1].xyz, distance, uLightPos[1].w, uLightDir[1].w, uLightDiffuse[1].w);
 
 #if SLOT1_SHADOWS
-		attenuation *=SampleShadowPCF(uSpotShadowMap, vSpotShadowCoord, uShadowState.y, uShadowState.w, jitter);
+		float spot_shadow_strength = SampleShadowPCF(uSpotShadowMap, vSpotShadowCoord, uShadowState.y, uShadowState.w, jitter);
+		attenuation *= spot_shadow_strength;
+		irradiance_factor *= spot_shadow_strength;
 #endif // SLOT1_SHADOWS
 		color += GGX(V, N, NdotV, L, base_opacity.xyz, occ_rough_metal.g, occ_rough_metal.b, F0, uLightDiffuse[1].xyz * attenuation, uLightSpecular[1].xyz * attenuation);
 	}
@@ -239,8 +243,8 @@ void main() {
 	float lod_level = log2(dd);
 #endif
 
-	vec3 irradiance = textureCube(uIrradianceMap, ReprojectProbe(P, N)).xyz;
-	vec3 radiance = textureCubeLod(uRadianceMap, ReprojectProbe(P, R), occ_rough_metal.y * MAX_REFLECTION_LOD).xyz;
+	vec3 irradiance = textureCube(uIrradianceMap, ReprojectProbe(P, N)).xyz * uAmbientColor.y;
+	vec3 radiance = textureCubeLod(uRadianceMap, ReprojectProbe(P, R), occ_rough_metal.y * MAX_REFLECTION_LOD).xyz * uAmbientColor.x * irradiance_factor;
 
 #if FORWARD_PIPELINE_AAA
 	vec4 ss_irradiance = texture2D(uSSIrradianceMap, gl_FragCoord.xy / uResolution.xy);
@@ -264,7 +268,7 @@ void main() {
 
 	color += kD * diffuse;
 	color += specular;
-	color += uAmbientColor.xyz;
+	// color += uAmbientColor.xyz;
 	color *= occ_rough_metal.x;
 	color += self.xyz;
 

@@ -11,8 +11,8 @@
 	},
 	"environment": {
 		"ambient": [
-			0,
-			0,
+			22,
+			128,
 			0,
 			255
 		],
@@ -27,14 +27,14 @@
 		"fog_far": 0.0,
 		"fog_near": 0.0,
 		"probe": {
-			"irradiance_map": "core/pbr/probe.hdr.irradiance",
+			"irradiance_map": "probes/small_empty_room_1_2k.hdr.irradiance",
 			"parallax": 0.0,
 			"pos": [
 				0.0,
 				0.0,
 				0.0
 			],
-			"radiance_map": "core/pbr/probe.hdr.radiance",
+			"radiance_map": "probes/small_empty_room_1_2k.hdr.radiance",
 			"rot": [
 				0.0,
 				0.0,
@@ -50,13 +50,22 @@
 	},
 	"instances": [
 		{
-			"name": "props/berlin_desk/berlin_desk.scn"
+			"name": "props/desk_pen_tray/desk_pen_tray_nostalgy.scn"
+		},
+		{
+			"name": "props/small_chair/SM_Chair05.scn"
 		},
 		{
 			"name": "props/office_chair/SM_OfficeChair02.scn"
 		},
 		{
-			"name": "props/small_chair/SM_Chair05.scn"
+			"name": "props/berlin_desk/berlin_desk.scn"
+		},
+		{
+			"name": "props/study_corner_essentials/study_corner_essentials.scn"
+		},
+		{
+			"name": "props/retro_connection/retro_connection.scn"
 		}
 	],
 	"key_values": null,
@@ -69,8 +78,8 @@
 				255
 			],
 			"diffuse_intensity": 1.0,
-			"inner_angle": 0.5235987901687622,
-			"outer_angle": 0.7853981852531433,
+			"inner_angle": 0.34392762184143066,
+			"outer_angle": 0.771430253982544,
 			"priority": 0.0,
 			"pssm_split": [
 				10.0,
@@ -102,7 +111,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 0,
+			"instance": 3,
 			"name": "berlin_desk"
 		},
 		{
@@ -114,7 +123,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 2,
+			"idx": 1,
 			"name": "ground"
 		},
 		{
@@ -126,7 +135,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 3,
+			"idx": 2,
 			"name": "Light"
 		},
 		{
@@ -138,9 +147,22 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 4,
-			"instance": 1,
+			"idx": 3,
+			"instance": 2,
 			"name": "SM_OfficeChair02"
+		},
+		{
+			"components": [
+				5,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 4,
+			"instance": 0,
+			"name": "desk_pen_tray_nostalgy"
 		},
 		{
 			"components": [
@@ -151,9 +173,47 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 19,
-			"instance": 2,
+			"idx": 5,
+			"instance": 1,
 			"name": "SM_Chair05"
+		},
+		{
+			"components": [
+				6,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 32,
+			"instance": 5,
+			"name": "retro_connection"
+		},
+		{
+			"components": [
+				7,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 34,
+			"instance": 4,
+			"name": "study_corner_essentials"
+		},
+		{
+			"components": [
+				8,
+				4294967295,
+				1,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 38,
+			"name": "sphere_chrome"
 		}
 	],
 	"objects": [
@@ -231,6 +291,81 @@
 				}
 			],
 			"name": "props/primitives/plane.geo"
+		},
+		{
+			"bones": [],
+			"material_infos": [
+				{
+					"name": "default"
+				}
+			],
+			"materials": [
+				{
+					"blend_mode": "opaque",
+					"depth_test": "less",
+					"face_culling": "cw",
+					"flags": [],
+					"program": "core/shader/pbr.hps",
+					"values": [
+						{
+							"name": "uBaseOpacityColor",
+							"type": "vec4",
+							"value": [
+								1.0,
+								0.9999899864196777,
+								0.9999899864196777,
+								1.0
+							]
+						},
+						{
+							"name": "uDiffuseColor",
+							"type": "vec4",
+							"value": [
+								0.5882353186607361,
+								0.5882353186607361,
+								0.5882353186607361,
+								1.0
+							]
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessColor",
+							"type": "vec4",
+							"value": [
+								1.0,
+								0.10000000149011612,
+								0.949999988079071,
+								1.0
+							]
+						},
+						{
+							"name": "uSelfColor",
+							"type": "vec4",
+							"value": [
+								0.0,
+								0.0,
+								0.0,
+								-1.0
+							]
+						},
+						{
+							"name": "uSpecularColor",
+							"type": "vec4",
+							"value": [
+								0.0,
+								0.0,
+								0.0,
+								0.03124999813735485
+							]
+						}
+					],
+					"write_a": true,
+					"write_b": true,
+					"write_g": true,
+					"write_r": true,
+					"write_z": true
+				}
+			],
+			"name": "props/primitives/sphere.geo"
 		}
 	],
 	"transforms": [
@@ -256,18 +391,18 @@
 			"parent": null,
 			"pos": [
 				0.0,
-				2.3764827251434326,
-				-1.301002025604248
+				2.3375890254974365,
+				-2.3059098720550537
 			],
 			"rot": [
-				60.09889221191406,
+				45.69357681274414,
 				0.0,
 				0.0
 			],
 			"scl": [
 				1.0,
-				0.9999999403953552,
-				0.9999999403953552
+				0.9999998807907104,
+				0.9999998807907104
 			]
 		},
 		{
@@ -291,9 +426,9 @@
 		{
 			"parent": null,
 			"pos": [
-				1.724238395690918,
+				1.4426541328430176,
 				0.0,
-				-1.7282590866088867
+				-0.8362596035003662
 			],
 			"rot": [
 				-0.0,
@@ -301,9 +436,9 @@
 				0.0
 			],
 			"scl": [
+				1.0000001192092896,
 				1.0,
-				1.0,
-				1.0
+				1.0000001192092896
 			]
 		},
 		{
@@ -315,6 +450,78 @@
 			],
 			"rot": [
 				0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"parent": 0,
+			"pos": [
+				0.255520761013031,
+				0.7713391780853271,
+				0.008448842912912369
+			],
+			"rot": [
+				-0.0,
+				166.31387329101563,
+				0.0
+			],
+			"scl": [
+				0.4999999403953552,
+				0.5,
+				0.4999999403953552
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.6243232488632202,
+				0.7684450745582581,
+				0.2425938844680786
+			],
+			"rot": [
+				-0.0,
+				149.99998474121094,
+				0.0
+			],
+			"scl": [
+				0.9000000357627869,
+				0.8999999761581421,
+				0.9000000357627869
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.18181714415550232,
+				0.76921546459198,
+				0.15064668655395508
+			],
+			"rot": [
+				-0.0,
+				147.227783203125,
+				0.0
+			],
+			"scl": [
+				0.44999992847442627,
+				0.44999998807907104,
+				0.44999992847442627
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.2540520429611206,
+				0.3170098066329956,
+				-2.512829542160034
+			],
+			"rot": [
+				-7.0167078561561656e-15,
 				0.0,
 				0.0
 			],
