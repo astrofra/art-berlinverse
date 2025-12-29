@@ -3,17 +3,17 @@
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			0,
-			0,
-			0,
+			89,
+			89,
+			89,
 			255
 		]
 	},
 	"environment": {
 		"ambient": [
-			0,
-			0,
-			0,
+			255,
+			255,
+			255,
 			255
 		],
 		"brdf_map": "core/pbr/brdf.dds",
@@ -48,6 +48,41 @@
 			"type": "sphere"
 		}
 	},
+	"instances": [
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		}
+	],
 	"key_values": null,
 	"nodes": [
 		{
@@ -61,6 +96,149 @@
 			"disabled": false,
 			"idx": 0,
 			"name": "berlin_desk"
+		},
+		{
+			"components": [
+				1,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 1,
+			"instance": 0,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				2,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 3,
+			"instance": 1,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				3,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 5,
+			"instance": 2,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				4,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 7,
+			"instance": 3,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				5,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 9,
+			"instance": 4,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				6,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 11,
+			"instance": 5,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				7,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 12,
+			"instance": 6,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				8,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 15,
+			"instance": 7,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				9,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 16,
+			"instance": 8,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				10,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 19,
+			"instance": 9,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				11,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 20,
+			"instance": 10,
+			"name": "round_shadow"
 		}
 	],
 	"objects": [
@@ -154,6 +332,204 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.6627991199493408,
+				0.009999999776482582,
+				-0.005092218518257141
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.6342782378196716,
+				1.0,
+				1.5347886085510254
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.6628000140190125,
+				0.009999999776482582,
+				-0.005092218518257141
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.6342782378196716,
+				1.0,
+				1.5347886085510254
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.0010000000474974513,
+				0.0
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				2.4203438758850098,
+				1.0,
+				1.8327200412750244
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.8910509943962097,
+				0.0010000000474974513,
+				0.598194420337677
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.8910509943962097,
+				0.0010000000474974513,
+				-0.6195644736289978
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.4242512583732605,
+				0.0010000000474974513,
+				0.598194420337677
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.4242512583732605,
+				0.0010000000474974513,
+				-0.6195644736289978
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.4231029152870178,
+				0.0010000000474974513,
+				0.598194420337677
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.4231029152870178,
+				0.0010000000474974513,
+				-0.6195644736289978
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.8845462799072266,
+				0.0010000000474974513,
+				0.598194420337677
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.8845462799072266,
+				0.0010000000474974513,
+				-0.6195644736289978
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.125,
+				0.125,
+				0.125
 			]
 		}
 	]
