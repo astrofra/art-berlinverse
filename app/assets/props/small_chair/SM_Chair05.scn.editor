@@ -1,10 +1,10 @@
 {
 	"editor": {
 		"animeditor_plugin": {
-			"backward_trajectory_duration": 0.25,
-			"forward_trajectory_duration": 0.25,
 			"quantize_time": true,
-			"show_trajectories": null
+			"show_trajectories": null,
+			"trajectories_tick_seconds": 1.0,
+			"trajectories_tick_size": 0.10000000149011612
 		},
 		"explorer": {
 			"node_custom_order": {
@@ -15,8 +15,7 @@
 					3,
 					5,
 					1,
-					4,
-					11
+					4
 				]
 			},
 			"node_sort_method": "custom",
