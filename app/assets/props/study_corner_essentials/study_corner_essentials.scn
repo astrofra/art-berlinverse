@@ -11,9 +11,9 @@
 	},
 	"environment": {
 		"ambient": [
-			0,
-			0,
-			0,
+			255,
+			255,
+			255,
 			255
 		],
 		"brdf_map": "core/pbr/brdf.dds",
@@ -259,6 +259,7 @@
 						},
 						{
 							"name": "uOcclusionRoughnessMetalnessMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_lamp_orm.png",
 							"stage": 1
 						}
 					],
