@@ -3,8 +3,8 @@
 		"default": {
 			"generate-probe": true,
 			"max-probe-size": 1024,
-			"radiance-edge-fixup": false,
-			"type": "Standard"
+			"radiance-edge-fixup": true,
+			"type": "Ignore"
 		}
 	}
 }
