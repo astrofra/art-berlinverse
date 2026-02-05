@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dpalqrrox40uo"]
+
+[ext_resource type="PackedScene" uid="uid://c5qkiosum5n1i" path="res://models/berlin_desk.fbx" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cf3on4e6rchmm" path="res://models/the_room.fbx" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bgnna3a21oes1" path="res://models/study_corner_essentials.fbx" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d2t7svnlron0u" path="res://models/retro_connection.fbx" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dhterowxllgqe" path="res://models/desk_pen_tray_nostalgy.fbx" id="5_lquwl"]
+
+[node name="Node3D" type="Node3D" unique_id=1932064803]
+
+[node name="berlin_desk" parent="." unique_id=1378235454 instance=ExtResource("1_0xm2m")]
+
+[node name="the_room" parent="." unique_id=60695046 instance=ExtResource("2_h2yge")]
+
+[node name="study_corner_essentials" parent="." unique_id=2045188060 instance=ExtResource("3_h2yge")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.081, 0.785, -0.187)
+
+[node name="retro_connection" parent="." unique_id=1308420941 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.83044785, 0, 0.34692416, 0, 0.9, 0, -0.34692416, 0, 0.83044785, -0.65322244, 0.785, 0.24767917)
+
+[node name="desk_pen_tray_nostalgy" parent="." unique_id=285069987 instance=ExtResource("5_lquwl")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.12977283, 0.785, 0.34957355)
