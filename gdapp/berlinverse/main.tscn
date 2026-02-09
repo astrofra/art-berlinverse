@@ -20,3 +20,8 @@ transform = Transform3D(0.83044785, 0, 0.34692416, 0, 0.9, 0, -0.34692416, 0, 0.
 
 [node name="desk_pen_tray_nostalgy" parent="." unique_id=285069987 instance=ExtResource("5_lquwl")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.12977283, 0.785, 0.34957355)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2047555707]
+transform = Transform3D(-0.9998302, -4.6558224e-10, 0.01842958, 0.00781636, 0.90560585, 0.42404836, -0.016689934, 0.42412043, -0.905452, 0.22255182, 2.5015402, -3.0079896)
+light_energy = 10.0
+light_bake_mode = 1
