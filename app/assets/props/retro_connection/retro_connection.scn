@@ -95,7 +95,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 3,
+			"idx": 2,
 			"instance": 1,
 			"name": "round_shadow"
 		},
@@ -108,7 +108,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 5,
+			"idx": 3,
 			"instance": 2,
 			"name": "round_shadow"
 		}
@@ -147,6 +147,16 @@
 					],
 					"values": [
 						{
+							"name": "uAmbient",
+							"type": "vec4",
+							"value": [
+								0.20000000298023224,
+								1.0,
+								2.0,
+								0.0
+							]
+						},
+						{
 							"name": "uBaseOpacityColor",
 							"type": "vec4",
 							"value": [
@@ -164,6 +174,16 @@
 								0.5,
 								0.25,
 								0.0
+							]
+						},
+						{
+							"name": "uRadiance",
+							"type": "vec4",
+							"value": [
+								10.0,
+								1.0,
+								1.0,
+								1.0
 							]
 						},
 						{

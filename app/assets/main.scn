@@ -39,7 +39,7 @@
 		"fog_near": 25.0,
 		"probe": {
 			"irradiance_map": "probes/the_room_001.hdr.irradiance",
-			"parallax": 0.686274528503418,
+			"parallax": 1.0,
 			"pos": [
 				-0.10000000149011612,
 				1.7999999523162842,
@@ -60,15 +60,6 @@
 		}
 	},
 	"instances": [
-		{
-			"name": "props/berlin_fernsehturm/berlin_fernsehturm.scn"
-		},
-		{
-			"name": "props/retro_connection/retro_connection.scn"
-		},
-		{
-			"name": "props/study_corner_essentials/study_corner_essentials.scn"
-		},
 		{
 			"name": "props/berlin_desk/berlin_desk.scn"
 		},
@@ -91,6 +82,15 @@
 		},
 		{
 			"name": "props/facit/facit.scn"
+		},
+		{
+			"name": "props/study_corner_essentials/study_corner_essentials.scn"
+		},
+		{
+			"name": "props/retro_connection/retro_connection.scn"
+		},
+		{
+			"name": "props/berlin_fernsehturm/berlin_fernsehturm.scn"
 		}
 	],
 	"key_values": null,
@@ -252,7 +252,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 3,
+			"instance": 0,
 			"name": "berlin_desk"
 		},
 		{
@@ -289,7 +289,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 4,
+			"instance": 1,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -302,7 +302,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 6,
+			"instance": 3,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -315,7 +315,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 5,
+			"instance": 2,
 			"name": "SM_Chair05"
 		},
 		{
@@ -328,7 +328,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 1,
+			"instance": 8,
 			"name": "retro_connection"
 		},
 		{
@@ -341,7 +341,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 2,
+			"instance": 7,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -390,7 +390,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 0,
+			"instance": 9,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -415,7 +415,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 7,
+			"instance": 4,
 			"name": "the_room"
 		},
 		{
@@ -464,7 +464,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 8,
+			"instance": 5,
 			"name": "assistant_export"
 		},
 		{
@@ -489,7 +489,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 9,
+			"instance": 6,
 			"name": "facit"
 		}
 	],
@@ -782,7 +782,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957778930664063,
+				27.95777702331543,
 				0.0,
 				0.0
 			],
@@ -1016,7 +1016,7 @@
 				-5.0045366287231445
 			],
 			"rot": [
-				89.99996185302734,
+				89.99995422363281,
 				0.0,
 				0.0
 			],
@@ -1035,8 +1035,8 @@
 			],
 			"rot": [
 				29.27851676940918,
-				-179.99993896484375,
-				-179.99993896484375
+				-179.9999237060547,
+				-179.9999237060547
 			],
 			"scl": [
 				0.9999997615814209,
@@ -1071,7 +1071,7 @@
 			],
 			"rot": [
 				-0.0,
-				-59.05890655517578,
+				-59.05889892578125,
 				0.0
 			],
 			"scl": [
@@ -1083,17 +1083,17 @@
 		{
 			"parent": null,
 			"pos": [
-				-0.5996134877204895,
-				1.152030348777771,
-				-0.12033769488334656
+				-0.6039559841156006,
+				1.1782925128936768,
+				-0.2984740436077118
 			],
 			"rot": [
 				58.30714416503906,
-				55.885719299316406,
-				0.0
+				55.8857307434082,
+				3.7324919048842276e-06
 			],
 			"scl": [
-				0.9999991655349731,
+				0.9999992847442627,
 				0.9999996423721313,
 				0.999998927116394
 			]
