@@ -8,11 +8,18 @@ uniform vec4 uBaseOpacityColor;
 uniform vec4 uOcclusionRoughnessMetalnessColor;
 uniform vec4 uSelfColor;
 
+uniform vec4 uAmbient; // x, y: min, max / z : pow
+uniform vec4 uRadiance;
+
 // Texture slots
 SAMPLER2D(uBaseOpacityMap, 0);
 SAMPLER2D(uOcclusionRoughnessMetalnessMap, 1);
 SAMPLER2D(uNormalMap, 2);
 SAMPLER2D(uSelfMap, 4);
+
+float map(float value, float min1, float max1, float min2, float max2) {
+  return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
+}
 
 //
 float LightAttenuation(vec3 L, vec3 D, float dist, float attn, float inner_rim, float outer_rim) {
@@ -138,6 +145,10 @@ void main() {
 	vec4 occ_rough_metal = uOcclusionRoughnessMetalnessColor;
 #endif // USE_OCCLUSION_ROUGHNESS_METALNESS_MAP
 
+	occ_rough_metal.x = map(occ_rough_metal.x, uAmbient.x, uAmbient.y, 0.0, 1.0);
+	occ_rough_metal.x = clamp(occ_rough_metal.x, 0.0, 1.0);
+	occ_rough_metal.x = pow(occ_rough_metal.x, uAmbient.z);
+
 	//
 #if USE_SELF_MAP
 	vec4 self = texture2D(uSelfMap, vTexCoord0);
@@ -244,7 +255,7 @@ void main() {
 #endif
 
 	vec3 irradiance = textureCube(uIrradianceMap, ReprojectProbe(P, N)).xyz * uAmbientColor.y;
-	vec3 radiance = textureCubeLod(uRadianceMap, ReprojectProbe(P, R), occ_rough_metal.y * MAX_REFLECTION_LOD).xyz * uAmbientColor.x * irradiance_factor;
+	vec3 radiance = textureCubeLod(uRadianceMap, ReprojectProbe(P, R), occ_rough_metal.y * MAX_REFLECTION_LOD).xyz * uAmbientColor.x * irradiance_factor * uRadiance.x;
 
 #if FORWARD_PIPELINE_AAA
 	vec4 ss_irradiance = texture2D(uSSIrradianceMap, gl_FragCoord.xy / uResolution.xy);

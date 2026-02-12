@@ -3,17 +3,17 @@
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			0,
-			0,
-			0,
+			129,
+			129,
+			129,
 			255
 		]
 	},
 	"environment": {
 		"ambient": [
-			0,
-			0,
-			0,
+			255,
+			255,
+			255,
 			255
 		],
 		"brdf_map": "core/pbr/brdf.dds",
@@ -48,6 +48,17 @@
 			"type": "sphere"
 		}
 	},
+	"instances": [
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		}
+	],
 	"key_values": null,
 	"nodes": [
 		{
@@ -61,6 +72,45 @@
 			"disabled": false,
 			"idx": 0,
 			"name": "pen_tray"
+		},
+		{
+			"components": [
+				1,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 1,
+			"instance": 0,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				2,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 3,
+			"instance": 1,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				3,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 5,
+			"instance": 2,
+			"name": "square_shadow"
 		}
 	],
 	"objects": [
@@ -154,6 +204,60 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.06477092206478119,
+				0.018273508176207542,
+				0.24512119591236115
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.52311772108078,
+				0.9999995231628418,
+				0.1991448849439621
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.05947911739349365,
+				0.02160445787012577,
+				0.2450316995382309
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.5442594885826111,
+				0.9999999403953552,
+				0.29215094447135925
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.0002426562423352152,
+				0.008699143305420876,
+				-0.1304258406162262
+			],
+			"rot": [
+				-0.0,
+				-1.8829838037490845,
+				0.0
+			],
+			"scl": [
+				0.7370086908340454,
+				0.9999995231628418,
+				0.5008180737495422
 			]
 		}
 	]

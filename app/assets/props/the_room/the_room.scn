@@ -83,9 +83,24 @@
 							"name": "uBaseOpacityMap",
 							"path": "props/the_room/the_room_albedo.png",
 							"stage": 0
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessMap",
+							"path": "props/the_room/the_room_ORM.png",
+							"stage": 1
 						}
 					],
 					"values": [
+						{
+							"name": "uAmbient",
+							"type": "vec4",
+							"value": [
+								0.20000000298023224,
+								1.0,
+								2.0,
+								0.0
+							]
+						},
 						{
 							"name": "uBaseOpacityColor",
 							"type": "vec4",
@@ -104,6 +119,16 @@
 								0.8500000238418579,
 								0.05000000074505806,
 								0.0
+							]
+						},
+						{
+							"name": "uRadiance",
+							"type": "vec4",
+							"value": [
+								2.0,
+								1.0,
+								1.0,
+								1.0
 							]
 						},
 						{

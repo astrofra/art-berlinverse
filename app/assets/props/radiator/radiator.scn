@@ -1,0 +1,234 @@
+{
+	"canvas": {
+		"clear_color": true,
+		"clear_z": true,
+		"color": [
+			86,
+			86,
+			86,
+			255
+		]
+	},
+	"environment": {
+		"ambient": [
+			255,
+			255,
+			255,
+			255
+		],
+		"brdf_map": "core/pbr/brdf.dds",
+		"current_camera": null,
+		"fog_color": [
+			255,
+			255,
+			255,
+			255
+		],
+		"fog_far": 0.0,
+		"fog_near": 0.0,
+		"probe": {
+			"irradiance_map": "core/pbr/probe.hdr.irradiance",
+			"parallax": 0.0,
+			"pos": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"radiance_map": "core/pbr/probe.hdr.radiance",
+			"rot": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"type": "sphere"
+		}
+	},
+	"instances": [
+		{
+			"name": "props/radiator/radiator_export.scn"
+		},
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		}
+	],
+	"key_values": null,
+	"nodes": [
+		{
+			"components": [
+				4,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 0,
+			"instance": 0,
+			"name": "radiator_export"
+		},
+		{
+			"components": [
+				0,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 2,
+			"name": "Node"
+		},
+		{
+			"components": [
+				1,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 3,
+			"instance": 1,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				2,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 5,
+			"instance": 2,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				3,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 7,
+			"instance": 3,
+			"name": "round_shadow"
+		}
+	],
+	"scene_anims": [
+		{
+			"anim": 4294967295,
+			"frame_duration": 50000000,
+			"name": "radiator_export",
+			"node_anims": null,
+			"t_end": 3333000000,
+			"t_start": 0
+		}
+	],
+	"transforms": [
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"rot": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.009999999776482582,
+				0.0
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.6972962617874146,
+				1.0,
+				0.5448462963104248
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				2.2973175048828125,
+				1.0,
+				0.6888044476509094
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.8578509092330933,
+				0.20815692842006683
+			],
+			"rot": [
+				-89.99998474121094,
+				0.0,
+				0.0
+			],
+			"scl": [
+				2.3179919719696045,
+				0.9999999403953552,
+				2.1376359462738037
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.8450511693954468,
+				0.0
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
+			]
+		}
+	]
+}

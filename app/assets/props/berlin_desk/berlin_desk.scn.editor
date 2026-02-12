@@ -17,11 +17,12 @@
 					7,
 					9,
 					11,
-					12,
-					15,
-					16,
-					19,
-					20
+					2,
+					4,
+					6,
+					8,
+					10,
+					23
 				]
 			},
 			"node_sort_method": "custom",
@@ -51,7 +52,7 @@
 			"snap_scale_fine": 1.0,
 			"snap_translation": 1.0,
 			"snap_translation_fine": 0.10000000149011612,
-			"tool": "move"
+			"tool": "scale"
 		},
 		"view_plugin": {
 			"show_cameras": true,

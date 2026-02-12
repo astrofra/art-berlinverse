@@ -3,17 +3,17 @@
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			0,
-			0,
-			0,
+			95,
+			95,
+			95,
 			255
 		]
 	},
 	"environment": {
 		"ambient": [
-			0,
-			0,
-			0,
+			255,
+			255,
+			255,
 			255
 		],
 		"brdf_map": "core/pbr/brdf.dds",
@@ -48,6 +48,17 @@
 			"type": "sphere"
 		}
 	},
+	"instances": [
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		}
+	],
 	"key_values": null,
 	"nodes": [
 		{
@@ -61,6 +72,45 @@
 			"disabled": false,
 			"idx": 0,
 			"name": "retro_connection"
+		},
+		{
+			"components": [
+				1,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 1,
+			"instance": 0,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				2,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 2,
+			"instance": 1,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				3,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 3,
+			"instance": 2,
+			"name": "round_shadow"
 		}
 	],
 	"objects": [
@@ -97,6 +147,16 @@
 					],
 					"values": [
 						{
+							"name": "uAmbient",
+							"type": "vec4",
+							"value": [
+								0.20000000298023224,
+								1.0,
+								2.0,
+								0.0
+							]
+						},
+						{
 							"name": "uBaseOpacityColor",
 							"type": "vec4",
 							"value": [
@@ -114,6 +174,16 @@
 								0.5,
 								0.25,
 								0.0
+							]
+						},
+						{
+							"name": "uRadiance",
+							"type": "vec4",
+							"value": [
+								10.0,
+								1.0,
+								1.0,
+								1.0
 							]
 						},
 						{
@@ -154,6 +224,60 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.004327472299337387,
+				0.033732444047927856,
+				-0.0004560062661767006
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.3102789521217346,
+				0.9999995231628418,
+				0.36788856983184814
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0011632442474365234,
+				0.009063897654414177,
+				0.0032876525074243546
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.35639381408691406,
+				0.9999999403953552,
+				0.41424664855003357
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0011632442474365234,
+				0.009063897654414177,
+				0.0032876525074243546
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.5442594885826111,
+				0.9999999403953552,
+				0.41424664855003357
 			]
 		}
 	]

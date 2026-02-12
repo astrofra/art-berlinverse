@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dpalqrrox40uo"]
+
+[ext_resource type="PackedScene" uid="uid://c5qkiosum5n1i" path="res://models/berlin_desk.fbx" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cf3on4e6rchmm" path="res://models/the_room.fbx" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bgnna3a21oes1" path="res://models/study_corner_essentials.fbx" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d2t7svnlron0u" path="res://models/retro_connection.fbx" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dhterowxllgqe" path="res://models/desk_pen_tray_nostalgy.fbx" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dii31v004o8fw" path="res://models/characters/assistant_export.fbx" id="6_7mycd"]
+[ext_resource type="LightmapGIData" uid="uid://d06yhdga6kx1o" path="res://lightmaps/main.lmbake" id="7_272bh"]
+
+[sub_resource type="Environment" id="Environment_7mycd"]
+
+[node name="Node3D" type="Node3D" unique_id=1932064803]
+
+[node name="berlin_desk" parent="." unique_id=1497234371 instance=ExtResource("1_0xm2m")]
+
+[node name="the_room" parent="." unique_id=849472956 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005202055, 0, 0.003522396)
+
+[node name="study_corner_essentials" parent="." unique_id=975782685 instance=ExtResource("3_h2yge")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.081, 0.785, -0.187)
+
+[node name="retro_connection" parent="." unique_id=1308420941 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(0.83044785, 0, 0.34692416, 0, 0.9, 0, -0.34692416, 0, 0.83044785, -0.65322244, 0.7677532, 0.24767917)
+
+[node name="desk_pen_tray_nostalgy" parent="." unique_id=285069987 instance=ExtResource("5_lquwl")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.12977283, 0.785, 0.34957355)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2047555707]
+transform = Transform3D(-0.9998302, -4.6558224e-10, 0.01842958, 0.00781636, 0.90560585, 0.42404836, -0.016689934, 0.42412043, -0.905452, 0.22255182, 2.5015402, -3.8352349)
+light_energy = 2.92
+shadow_enabled = true
+shadow_bias = 0.005
+spot_range = 169.149
+spot_attenuation = -1.48
+spot_angle = 25.29
+spot_angle_attenuation = 181.01976
+
+[node name="assistant_export" parent="." unique_id=1964468247 instance=ExtResource("6_7mycd")]
+transform = Transform3D(0.9521934, 0, -0.3054959, 0, 1, 0, 0.3054959, 0, 0.9521934, -0.841782, 1.1920929e-07, -1.6131895)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=436335112]
+transform = Transform3D(0.9521934, 0, -0.3054959, 0, 1, 0, 0.3054959, 0, 0.9521934, -0.66081846, 1.2600479, 1.2218666)
+
+[node name="LightmapProbe" type="LightmapProbe" parent="." unique_id=706057483]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=833522329]
+environment = SubResource("Environment_7mycd")
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=1105393468]
+bounces = 8
+bounce_indirect_energy = 2.0
+interior = true
+generate_probes_subdiv = 3
+light_data = ExtResource("7_272bh")
