@@ -61,12 +61,6 @@
 	},
 	"instances": [
 		{
-			"name": "props/berlin_desk/berlin_desk.scn"
-		},
-		{
-			"name": "props/office_chair/SM_OfficeChair02.scn"
-		},
-		{
 			"name": "props/small_chair/SM_Chair05.scn"
 		},
 		{
@@ -97,6 +91,15 @@
 		},
 		{
 			"name": "props/radiator/radiator.scn"
+		},
+		{
+			"name": "props/hydrant/hydrant_export.scn"
+		},
+		{
+			"name": "props/office_chair/SM_OfficeChair02.scn"
+		},
+		{
+			"name": "props/berlin_desk/berlin_desk.scn"
 		}
 	],
 	"key_values": null,
@@ -258,7 +261,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 0,
+			"instance": 12,
 			"name": "berlin_desk"
 		},
 		{
@@ -295,7 +298,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 1,
+			"instance": 11,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -308,7 +311,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 3,
+			"instance": 1,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -321,7 +324,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 2,
+			"instance": 0,
 			"name": "SM_Chair05"
 		},
 		{
@@ -334,7 +337,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 8,
+			"instance": 6,
 			"name": "retro_connection"
 		},
 		{
@@ -347,7 +350,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 7,
+			"instance": 5,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -396,7 +399,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 9,
+			"instance": 7,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -421,7 +424,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 4,
+			"instance": 2,
 			"name": "the_room"
 		},
 		{
@@ -470,7 +473,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 5,
+			"instance": 3,
 			"name": "assistant_export"
 		},
 		{
@@ -495,7 +498,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 6,
+			"instance": 4,
 			"name": "facit"
 		},
 		{
@@ -507,8 +510,8 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 129,
-			"instance": 10,
+			"idx": 20,
+			"instance": 8,
 			"name": "radiator"
 		},
 		{
@@ -520,9 +523,22 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 140,
-			"instance": 11,
+			"idx": 21,
+			"instance": 9,
 			"name": "radiator"
+		},
+		{
+			"components": [
+				22,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 22,
+			"instance": 10,
+			"name": "hydrant_export"
 		}
 	],
 	"objects": [
@@ -814,7 +830,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957773208618164,
+				27.95777130126953,
 				0.0,
 				0.0
 			],
@@ -1121,7 +1137,7 @@
 			],
 			"rot": [
 				58.30714416503906,
-				55.88572311401367,
+				55.885719299316406,
 				3.7324912227632012e-06
 			],
 			"scl": [
@@ -1157,7 +1173,7 @@
 			],
 			"rot": [
 				-0.0,
-				-179.99998474121094,
+				-179.99996948242188,
 				0.0
 			],
 			"scl": [
@@ -1182,6 +1198,24 @@
 				0.5999997854232788,
 				0.6000000238418579,
 				0.5999997854232788
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				2.9146018028259277,
+				0.0,
+				-4.493108749389648
+			],
+			"rot": [
+				-0.0,
+				90.0,
+				0.0
+			],
+			"scl": [
+				0.9999994039535522,
+				1.0,
+				0.9999994039535522
 			]
 		}
 	]
