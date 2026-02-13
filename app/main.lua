@@ -92,7 +92,7 @@ local camera_node = scene:GetNode("FPSCamera")
 scene:SetCurrentCamera(camera_node)
 
 local initial_head_pos = hg.Vec3(0, 0, 0)
-if open_vr_enabled and hg.IsValid(camera_node) then
+if open_vr_enabled then
 	initial_head_pos = hg.GetTranslation(camera_node:GetTransform():GetWorld())
 	initial_head_pos.y = 0.0
 end
