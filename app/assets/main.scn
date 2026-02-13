@@ -61,13 +61,34 @@
 	},
 	"instances": [
 		{
-			"name": "props/small_chair/SM_Chair05.scn"
+			"name": "characters/annelore/annelore.scn"
 		},
 		{
-			"name": "props/desk_pen_tray/desk_pen_tray_nostalgy.scn"
+			"name": "props/berlin_desk/berlin_desk.scn"
 		},
 		{
-			"name": "props/the_room/the_room.scn"
+			"name": "props/office_chair/SM_OfficeChair02.scn"
+		},
+		{
+			"name": "props/hydrant/hydrant_export.scn"
+		},
+		{
+			"name": "props/radiator/radiator.scn"
+		},
+		{
+			"name": "props/radiator/radiator.scn"
+		},
+		{
+			"name": "props/berlin_fernsehturm/berlin_fernsehturm.scn"
+		},
+		{
+			"name": "props/retro_connection/retro_connection.scn"
+		},
+		{
+			"name": "props/study_corner_essentials/study_corner_essentials.scn"
+		},
+		{
+			"name": "props/facit/facit.scn"
 		},
 		{
 			"anim": "idle",
@@ -75,31 +96,13 @@
 			"name": "characters/assistant/assistant_export.scn"
 		},
 		{
-			"name": "props/facit/facit.scn"
+			"name": "props/the_room/the_room.scn"
 		},
 		{
-			"name": "props/study_corner_essentials/study_corner_essentials.scn"
+			"name": "props/desk_pen_tray/desk_pen_tray_nostalgy.scn"
 		},
 		{
-			"name": "props/retro_connection/retro_connection.scn"
-		},
-		{
-			"name": "props/berlin_fernsehturm/berlin_fernsehturm.scn"
-		},
-		{
-			"name": "props/radiator/radiator.scn"
-		},
-		{
-			"name": "props/radiator/radiator.scn"
-		},
-		{
-			"name": "props/hydrant/hydrant_export.scn"
-		},
-		{
-			"name": "props/office_chair/SM_OfficeChair02.scn"
-		},
-		{
-			"name": "props/berlin_desk/berlin_desk.scn"
+			"name": "props/small_chair/SM_Chair05.scn"
 		}
 	],
 	"key_values": null,
@@ -261,7 +264,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 12,
+			"instance": 1,
 			"name": "berlin_desk"
 		},
 		{
@@ -298,7 +301,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 11,
+			"instance": 2,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -311,7 +314,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 1,
+			"instance": 12,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -324,7 +327,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 0,
+			"instance": 13,
 			"name": "SM_Chair05"
 		},
 		{
@@ -337,7 +340,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 6,
+			"instance": 7,
 			"name": "retro_connection"
 		},
 		{
@@ -350,7 +353,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 5,
+			"instance": 8,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -399,7 +402,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 7,
+			"instance": 6,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -424,7 +427,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 2,
+			"instance": 11,
 			"name": "the_room"
 		},
 		{
@@ -473,7 +476,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 3,
+			"instance": 10,
 			"name": "assistant_export"
 		},
 		{
@@ -498,7 +501,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 4,
+			"instance": 9,
 			"name": "facit"
 		},
 		{
@@ -511,7 +514,7 @@
 			],
 			"disabled": false,
 			"idx": 20,
-			"instance": 8,
+			"instance": 5,
 			"name": "radiator"
 		},
 		{
@@ -524,7 +527,7 @@
 			],
 			"disabled": false,
 			"idx": 21,
-			"instance": 9,
+			"instance": 4,
 			"name": "radiator"
 		},
 		{
@@ -537,8 +540,21 @@
 			],
 			"disabled": false,
 			"idx": 22,
-			"instance": 10,
+			"instance": 3,
 			"name": "hydrant_export"
+		},
+		{
+			"components": [
+				23,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 23,
+			"instance": 0,
+			"name": "annelore"
 		}
 	],
 	"objects": [
@@ -830,7 +846,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.95777130126953,
+				27.957765579223633,
 				0.0,
 				0.0
 			],
@@ -861,9 +877,9 @@
 		{
 			"parent": null,
 			"pos": [
-				1.4426541328430176,
+				1.715230941772461,
 				0.0,
-				-0.8362596035003662
+				-1.0239472389221191
 			],
 			"rot": [
 				-0.0,
@@ -1113,9 +1129,9 @@
 		{
 			"parent": null,
 			"pos": [
-				-1.4119306802749634,
-				0.0,
-				0.02707815170288086
+				-1.3074678182601929,
+				1.1920928955078125e-07,
+				-2.0754857063293457
 			],
 			"rot": [
 				-0.0,
@@ -1123,9 +1139,9 @@
 				0.0
 			],
 			"scl": [
+				0.9999999403953552,
 				1.0,
-				1.0,
-				1.0
+				0.9999999403953552
 			]
 		},
 		{
@@ -1137,7 +1153,7 @@
 			],
 			"rot": [
 				58.30714416503906,
-				55.885719299316406,
+				55.88570785522461,
 				3.7324912227632012e-06
 			],
 			"scl": [
@@ -1167,13 +1183,13 @@
 		{
 			"parent": null,
 			"pos": [
-				2.271273374557495,
+				2.393080711364746,
 				0.0,
 				-4.930517196655273
 			],
 			"rot": [
 				-0.0,
-				-179.99996948242188,
+				-179.9999237060547,
 				0.0
 			],
 			"scl": [
@@ -1203,19 +1219,37 @@
 		{
 			"parent": null,
 			"pos": [
-				2.9146018028259277,
+				-2.7852118015289307,
 				0.0,
-				-4.493108749389648
+				-4.823460102081299
 			],
 			"rot": [
 				-0.0,
-				90.0,
+				-179.99996948242188,
 				0.0
 			],
 			"scl": [
-				0.9999994039535522,
+				0.9999991059303284,
 				1.0,
-				0.9999994039535522
+				0.9999991059303284
+			]
+		},
+		{
+			"parent": 5,
+			"pos": [
+				-0.08680379390716553,
+				0.0023957788944244385,
+				-0.01795661449432373
+			],
+			"rot": [
+				-0.0,
+				-101.68746948242188,
+				0.0
+			],
+			"scl": [
+				0.9999997019767761,
+				1.0,
+				0.9999997019767761
 			]
 		}
 	]
