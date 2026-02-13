@@ -22,6 +22,19 @@ float map(float value, float min1, float max1, float min2, float max2) {
   return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
 
+vec3 Chroma(vec3 c) {
+	float sum = max(c.x + c.y + c.z, 1e-5);
+	return c / sum;
+}
+
+float LinearChromaKey(vec3 c, vec3 key) {
+	vec3 c_chroma = Chroma(c);
+	vec3 key_chroma = Chroma(key);
+	// Max distance between two chroma vectors constrained by sum=1 is sqrt(2).
+	float d = length(c_chroma - key_chroma);
+	return clamp(1.0 - d / 1.41421356, 0.0, 1.0);
+}
+
 //
 float LightAttenuation(vec3 L, vec3 D, float dist, float attn, float inner_rim, float outer_rim) {
 	float k = 1.0;
@@ -149,6 +162,13 @@ void main() {
 	occ_rough_metal.x = map(occ_rough_metal.x, uAmbient.x, uAmbient.y, 0.0, 1.0);
 	occ_rough_metal.x = clamp(occ_rough_metal.x, 0.0, 1.0);
 	occ_rough_metal.x = pow(occ_rough_metal.x, uAmbient.z);
+
+	vec3 skin_key_color = uSkinColor.xyz * uBaseOpacityColor.xyz;
+	float skin_chroma_key = LinearChromaKey(base_opacity.xyz, skin_key_color);
+	vec3 ao_gray = vec3_splat(occ_rough_metal.x);
+	vec3 ao_red_tint = occ_rough_metal.x * vec3(1.0, 0.7, 0.65);
+	ao_red_tint += (vec3(1.0, 0.7, 0.65) * 0.25);
+	vec3 ao_color = mix(ao_gray, ao_red_tint, skin_chroma_key * (1.0 - pow(clamp(occ_rough_metal.x, 0.0, 1.0), 2.5)));
 
 	//
 #if USE_SELF_MAP
@@ -281,7 +301,7 @@ void main() {
 	color += kD * diffuse;
 	color += specular;
 	// color += uAmbientColor.xyz;
-	color *= occ_rough_metal.x;
+	color *= ao_color;
 	color += self.xyz;
 
 	color = DistanceFog(view, color);
