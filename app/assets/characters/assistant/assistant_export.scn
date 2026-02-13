@@ -10492,7 +10492,7 @@
 					"flags": [
 						"EnableSkinning"
 					],
-					"program": "core/shader/pbr.hps",
+					"program": "core/shader/skin.hps",
 					"textures": [
 						{
 							"name": "uBaseOpacityMap",
