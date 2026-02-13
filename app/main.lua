@@ -1,0 +1,191 @@
+hg = require("harfang")
+require("config_gui")
+require("utils")
+
+hg.AddAssetsFolder("assets_compiled")
+
+hg.InputInit()
+hg.WindowSystemInit()
+local audio_initialized = false
+if hg.AudioInit then
+	hg.AudioInit()
+	audio_initialized = true
+elseif hg.OpenALInit then
+	hg.OpenALInit()
+	audio_initialized = true
+end
+
+SLIDE_SHOW_SPEED = 1.0
+VR_DEBUG_DISPLAY = false
+local run_mode = "play"
+
+-- local res_x, res_y = 768, 576
+-- local res_x, res_y = 800, 600
+-- local res_x, res_y = 1920, 1080
+
+local res_x, res_y = 960, 720
+local default_window_mode = hg.WV_Fullscreen
+local open_vr_enabled = false -- desktop-first default
+local language = "en"
+
+run_mode, res_x, res_y, default_window_mode, open_vr_enabled, language = config_gui(res_x, res_y, open_vr_enabled, language)
+
+if run_mode == "cancel" then
+	os.exit()
+end
+
+local win = hg.NewWindow('Berlinverse', res_x, res_y, 32, default_window_mode) --, hg.WV_Fullscreen)
+hg.RenderInit(win)
+hg.RenderReset(res_x, res_y, hg.RF_VSync | hg.RF_MSAA4X | hg.RF_MaxAnisotropy)
+
+local pipeline = hg.CreateForwardPipeline(2048, false)
+local res = hg.PipelineResources()
+
+-- VR Stuff
+
+local render_data = hg.SceneForwardPipelineRenderData()  -- this object is used by the low-level scene rendering API to share view-independent data with both eyes
+
+-- OpenVR initialization
+if open_vr_enabled and hg.OpenVRInit() then
+	open_vr_enabled = true
+else
+	open_vr_enabled = false
+end
+
+local vr_left_fb, vr_right_fb
+if open_vr_enabled then
+	vr_left_fb = hg.OpenVRCreateEyeFrameBuffer(hg.OVRAA_MSAA4x)
+	vr_right_fb = hg.OpenVRCreateEyeFrameBuffer(hg.OVRAA_MSAA4x)
+end
+
+-- Create scene
+local scene = hg.Scene()
+if not hg.LoadSceneFromAssets("main.scn", scene, res, hg.GetForwardPipelineInfo()) then
+	error("Failed to load scene: main.scn")
+end
+
+-- 3D scene stuff
+
+-- Setup 2D rendering resources to display eyes textures only when needed.
+local quad_model, quad_render_state, eye_t_x, quad_matrix, tex0_program
+local quad_uniform_set_value_list, quad_uniform_set_texture_list
+if open_vr_enabled and VR_DEBUG_DISPLAY then
+	local quad_layout = hg.VertexLayout()
+	quad_layout:Begin():Add(hg.A_Position, 3, hg.AT_Float):Add(hg.A_TexCoord0, 3, hg.AT_Float):End()
+
+	quad_model = hg.CreatePlaneModel(quad_layout, 1, 1, 1, 1)
+	quad_render_state = hg.ComputeRenderState(hg.BM_Alpha, hg.DT_Disabled, hg.FC_Disabled)
+
+	local eye_t_size = res_x / 2.5
+	eye_t_x = (res_x - 2 * eye_t_size) / 6 + eye_t_size / 2
+	quad_matrix = hg.TransformationMat4(hg.Vec3(0, 0, 0), hg.Vec3(hg.Deg(90), hg.Deg(0), hg.Deg(0)), hg.Vec3(eye_t_size, 1, eye_t_size))
+	tex0_program = hg.LoadProgramFromAssets("shaders/sprite")
+
+	quad_uniform_set_value_list = hg.UniformSetValueList()
+	quad_uniform_set_value_list:clear()
+	quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("color", hg.Vec4(1, 1, 1, 1)))
+
+	quad_uniform_set_texture_list = hg.UniformSetTextureList()
+end
+
+local camera_node = scene:GetNode("FPSCamera")
+scene:SetCurrentCamera(camera_node)
+
+local initial_head_pos = hg.Vec3(0, 0, 0)
+if open_vr_enabled and hg.IsValid(camera_node) then
+	initial_head_pos = hg.GetTranslation(camera_node:GetTransform():GetWorld())
+	initial_head_pos.y = 0.0
+end
+
+local keyboard = hg.Keyboard('raw')
+
+if not open_vr_enabled then
+	local _rot = camera_node:GetTransform():GetRot()
+	_rot.y = _rot.y + math.pi / 8.0
+	_rot.x = _rot.x + math.pi / 16.0
+	camera_node:GetTransform():SetRot(_rot)
+	camera_node:GetCamera():SetFov(math.pi / 2.0)
+	scene:SetCurrentCamera(camera_node)
+end
+
+-- Main loop
+local frame_count = 0
+
+while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
+	keyboard:Update()
+	local dt = hg.TickClock()
+
+	scene:Update(dt)
+
+	-- rendering
+	local view_id = 0  -- keep track of the next free view id
+	local passId
+
+	-- vr
+	if open_vr_enabled then
+		local actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, 0, 0))
+
+		local vr_state = hg.OpenVRGetState(actor_body_mtx, 0.05, 1000)
+		local left, right = hg.OpenVRStateToViewState(vr_state)
+
+		-- -- Calibration
+		-- if keyboard:Released(hg.K_Space) then
+		-- 	local physical_head_pos = hg.GetTranslation(vr_state.head)
+		-- 	head_pos_offset = initial_head_pos - physical_head_pos
+		-- 	-- calibration_local_matrix = hg.InverseFast(head_matrix) * hg.TransformationMat4(calibration_node.GetTransform().GetPos(), calibration_node.GetTransform().GetRot())
+		-- end
+
+		passId = hg.SceneForwardPipelinePassViewId()
+
+		-- Prepare view-independent render data once
+		view_id, passId = hg.PrepareSceneForwardPipelineCommonRenderData(view_id, scene, render_data, pipeline, res, passId)
+		local vr_eye_rect = hg.IntRect(0, 0, vr_state.width, vr_state.height)
+
+		-- Prepare the left eye render data then draw to its framebuffer
+		view_id, passId = hg.PrepareSceneForwardPipelineViewDependentRenderData(view_id, left, scene, render_data, pipeline, res, passId)
+		view_id, passId = hg.SubmitSceneToForwardPipeline(view_id, scene, vr_eye_rect, left, pipeline, render_data, res, vr_left_fb:GetHandle())
+
+		-- Prepare the right eye render data then draw to its framebuffer
+		view_id, passId = hg.PrepareSceneForwardPipelineViewDependentRenderData(view_id, right, scene, render_data, pipeline, res, passId)
+		view_id, passId = hg.SubmitSceneToForwardPipeline(view_id, scene, vr_eye_rect, right, pipeline, render_data, res, vr_right_fb:GetHandle())
+	else
+		view_id, passId = hg.SubmitSceneToPipeline(view_id, scene, hg.IntRect(0, 0, res_x, res_y), true, pipeline, res)
+	end
+
+	view_id = view_id + 1
+
+	-- Display the VR eyes texture to the backbuffer
+	if VR_DEBUG_DISPLAY and open_vr_enabled then
+		hg.SetViewRect(view_id, 0, 0, res_x, res_y)
+		local vs = hg.ComputeOrthographicViewState(hg.TranslationMat4(hg.Vec3(0, 0, 0)), res_y, 0.1, 100, hg.ComputeAspectRatioX(res_x, res_y))
+		hg.SetViewTransform(view_id, vs.view, vs.proj)
+
+		quad_uniform_set_texture_list:clear()
+		quad_uniform_set_texture_list:push_back(hg.MakeUniformSetTexture("s_tex", hg.OpenVRGetColorTexture(vr_left_fb), 0))
+		hg.SetT(quad_matrix, hg.Vec3(eye_t_x, 0, 1))
+		hg.DrawModel(view_id, quad_model, tex0_program, quad_uniform_set_value_list, quad_uniform_set_texture_list, quad_matrix, quad_render_state)
+
+		quad_uniform_set_texture_list:clear()
+		quad_uniform_set_texture_list:push_back(hg.MakeUniformSetTexture("s_tex", hg.OpenVRGetColorTexture(vr_right_fb), 0))
+		hg.SetT(quad_matrix, hg.Vec3(-eye_t_x, 0, 1))
+		hg.DrawModel(view_id, quad_model, tex0_program, quad_uniform_set_value_list, quad_uniform_set_texture_list, quad_matrix, quad_render_state)
+	end
+
+	hg.Frame()
+
+	if open_vr_enabled then
+		hg.OpenVRSubmitFrame(vr_left_fb, vr_right_fb)
+	end
+
+	hg.UpdateWindow(win)
+
+	-- scene:GarbageCollect()
+	-- collectgarbage()
+end
+
+hg.DestroyForwardPipeline(pipeline)
+if audio_initialized and hg.AudioShutdown then
+	hg.AudioShutdown()
+end
+hg.RenderShutdown()
+hg.DestroyWindow(win)
