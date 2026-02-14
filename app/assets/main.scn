@@ -61,12 +61,6 @@
 	},
 	"instances": [
 		{
-			"name": "characters/annelore/annelore.scn"
-		},
-		{
-			"name": "props/berlin_desk/berlin_desk.scn"
-		},
-		{
 			"name": "props/office_chair/SM_OfficeChair02.scn"
 		},
 		{
@@ -130,6 +124,15 @@
 		},
 		{
 			"name": "characters/margret/margret.scn"
+		},
+		{
+			"name": "props/entrance_door/door_export.scn"
+		},
+		{
+			"name": "props/berlin_desk/berlin_desk.scn"
+		},
+		{
+			"name": "characters/annelore/annelore.scn"
 		}
 	],
 	"key_values": null,
@@ -291,7 +294,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 1,
+			"instance": 22,
 			"name": "berlin_desk"
 		},
 		{
@@ -328,7 +331,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 2,
+			"instance": 0,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -341,7 +344,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 12,
+			"instance": 10,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -354,7 +357,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 13,
+			"instance": 11,
 			"name": "SM_Chair05"
 		},
 		{
@@ -367,7 +370,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 7,
+			"instance": 5,
 			"name": "retro_connection"
 		},
 		{
@@ -380,7 +383,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 8,
+			"instance": 6,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -429,7 +432,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 6,
+			"instance": 4,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -454,7 +457,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 11,
+			"instance": 9,
 			"name": "the_room"
 		},
 		{
@@ -503,7 +506,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 10,
+			"instance": 8,
 			"name": "assistant_export"
 		},
 		{
@@ -528,7 +531,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 9,
+			"instance": 7,
 			"name": "facit"
 		},
 		{
@@ -541,7 +544,7 @@
 			],
 			"disabled": false,
 			"idx": 20,
-			"instance": 5,
+			"instance": 3,
 			"name": "radiator"
 		},
 		{
@@ -554,7 +557,7 @@
 			],
 			"disabled": false,
 			"idx": 21,
-			"instance": 4,
+			"instance": 2,
 			"name": "radiator"
 		},
 		{
@@ -567,7 +570,7 @@
 			],
 			"disabled": false,
 			"idx": 22,
-			"instance": 3,
+			"instance": 1,
 			"name": "hydrant_export"
 		},
 		{
@@ -580,7 +583,7 @@
 			],
 			"disabled": false,
 			"idx": 23,
-			"instance": 0,
+			"instance": 23,
 			"name": "annelore"
 		},
 		{
@@ -593,7 +596,7 @@
 			],
 			"disabled": false,
 			"idx": 24,
-			"instance": 14,
+			"instance": 12,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -606,7 +609,7 @@
 			],
 			"disabled": false,
 			"idx": 25,
-			"instance": 15,
+			"instance": 13,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -619,7 +622,7 @@
 			],
 			"disabled": false,
 			"idx": 26,
-			"instance": 20,
+			"instance": 18,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -632,7 +635,7 @@
 			],
 			"disabled": false,
 			"idx": 27,
-			"instance": 19,
+			"instance": 17,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -645,7 +648,7 @@
 			],
 			"disabled": false,
 			"idx": 28,
-			"instance": 18,
+			"instance": 16,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -658,7 +661,7 @@
 			],
 			"disabled": false,
 			"idx": 29,
-			"instance": 17,
+			"instance": 15,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -671,7 +674,7 @@
 			],
 			"disabled": false,
 			"idx": 30,
-			"instance": 16,
+			"instance": 14,
 			"name": "miror"
 		},
 		{
@@ -684,7 +687,7 @@
 			],
 			"disabled": false,
 			"idx": 31,
-			"instance": 21,
+			"instance": 19,
 			"name": "georg"
 		},
 		{
@@ -696,9 +699,22 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 277,
-			"instance": 22,
+			"idx": 32,
+			"instance": 20,
 			"name": "margret"
+		},
+		{
+			"components": [
+				33,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 33,
+			"instance": 21,
+			"name": "door_export"
 		}
 	],
 	"objects": [
@@ -990,7 +1006,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.95775604248047,
+				27.957754135131836,
 				0.0,
 				0.0
 			],
@@ -1387,7 +1403,7 @@
 			],
 			"rot": [
 				-0.0,
-				-101.68743133544922,
+				-101.68742370605469,
 				0.0
 			],
 			"scl": [
@@ -1423,7 +1439,7 @@
 			],
 			"rot": [
 				-0.0,
-				-179.9999542236328,
+				-179.99993896484375,
 				0.0
 			],
 			"scl": [
@@ -1459,7 +1475,7 @@
 			],
 			"rot": [
 				-0.0,
-				-179.9999542236328,
+				-179.99993896484375,
 				0.0
 			],
 			"scl": [
@@ -1531,7 +1547,7 @@
 			],
 			"rot": [
 				-0.0,
-				147.48072814941406,
+				147.480712890625,
 				0.0
 			],
 			"scl": [
@@ -1549,7 +1565,25 @@
 			],
 			"rot": [
 				-0.0,
-				188.99998474121094,
+				188.99996948242188,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-1.3809309005737305,
+				0.0,
+				3.092128276824951
+			],
+			"rot": [
+				-0.0,
+				0.0,
 				0.0
 			],
 			"scl": [
