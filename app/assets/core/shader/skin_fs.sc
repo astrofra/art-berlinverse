@@ -195,6 +195,7 @@ void main() {
 #endif // USE_NORMAL_MAP
 
 	vec3 R = reflect(-V, N); // view reflection vector around normal
+	vec3 RF = refract(-V, N, 0.95); // view refraction vector around normal
 
 	float NdotV = clamp(dot(N, V), 0.0, 0.99);
 
@@ -277,6 +278,7 @@ void main() {
 
 	vec3 irradiance = textureCube(uIrradianceMap, ReprojectProbe(P, N)).xyz * uAmbientColor.y;
 	vec3 radiance = textureCubeLod(uRadianceMap, ReprojectProbe(P, R), occ_rough_metal.y * MAX_REFLECTION_LOD).xyz * uAmbientColor.x * irradiance_factor * uRadiance.x;
+	vec3 refracted_radiance = textureCube(uRadianceMap, ReprojectProbe(P, RF)).xyz;
 
 #if FORWARD_PIPELINE_AAA
 	vec4 ss_irradiance = texture2D(uSSIrradianceMap, gl_FragCoord.xy / uResolution.xy);
@@ -325,9 +327,11 @@ void main() {
 #if FORWARD_PIPELINE_AAA != 1
 	float gamma = 2.2;
 	color = pow(color, vec3_splat(1. / gamma));
+	refracted_radiance = pow(refracted_radiance, vec3_splat(1. / gamma));
 #endif // FORWARD_PIPELINE_AAA != 1
 
-	gl_FragColor = vec4(color, opacity);
+	gl_FragColor = vec4(refracted_radiance, opacity);
+	// gl_FragColor = vec4(color, opacity);
 #endif // FORWARD_PIPELINE_AAA_PREPASS
 #else
 	gl_FragColor = vec4_splat(0.0); // note: fix required to stop glsl-optimizer from removing the whole function body
