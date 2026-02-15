@@ -3,9 +3,9 @@
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			80,
-			80,
-			80,
+			72,
+			72,
+			72,
 			255
 		]
 	},
@@ -52,10 +52,7 @@
 		{
 			"anim": "idle",
 			"loop_mode": "loop",
-			"name": "characters/margret/margret_export.scn"
-		},
-		{
-			"name": "props/square_shadow/round_shadow.scn"
+			"name": "characters/assistant/assistant_export.scn"
 		}
 	],
 	"key_values": null,
@@ -72,31 +69,6 @@
 			"idx": 0,
 			"instance": 0,
 			"name": "character"
-		},
-		{
-			"components": [
-				1,
-				4294967295,
-				4294967295,
-				4294967295,
-				4294967295
-			],
-			"disabled": false,
-			"idx": 1,
-			"name": "Node"
-		},
-		{
-			"components": [
-				2,
-				4294967295,
-				4294967295,
-				4294967295,
-				4294967295
-			],
-			"disabled": false,
-			"idx": 2,
-			"instance": 1,
-			"name": "round_shadow"
 		}
 	],
 	"transforms": [
@@ -113,45 +85,9 @@
 				0.0
 			],
 			"scl": [
-				0.925000011920929,
-				0.925000011920929,
-				0.925000011920929
-			]
-		},
-		{
-			"parent": null,
-			"pos": [
-				0.0,
-				1.7000000476837158,
-				0.0
-			],
-			"rot": [
-				0.0,
-				0.0,
-				0.0
-			],
-			"scl": [
 				1.0,
 				1.0,
 				1.0
-			]
-		},
-		{
-			"parent": null,
-			"pos": [
-				0.0,
-				0.010962903499603271,
-				0.0
-			],
-			"rot": [
-				-0.0,
-				0.0,
-				0.0
-			],
-			"scl": [
-				0.7775604128837585,
-				1.0,
-				0.6024338006973267
 			]
 		}
 	]

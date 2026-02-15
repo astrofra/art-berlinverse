@@ -26,7 +26,9 @@ local characters = {
 }
 local character_idx = 1
 local char_change_clock = nil
-CHAR_EXPOSE_DURATION = hg.time_from_sec_f(5.0)
+CHAR_EXPOSE_DURATION_f = 10.0
+CHAR_EXPOSE_DURATION = hg.time_from_sec_f(CHAR_EXPOSE_DURATION_f)
+CHAR_EXPOSE_DURATION_PAD = CHAR_EXPOSE_DURATION -- hg.time_from_sec_f(CHAR_EXPOSE_DURATION_f + (CHAR_EXPOSE_DURATION_f / 10))
 
 -- local res_x, res_y = 768, 576
 -- local res_x, res_y = 800, 600
@@ -78,7 +80,9 @@ end
 local i
 for i = 1, #characters do
 	characters[i].node = scene:GetNode(characters[i].name)
-	characters[i].material = characters[i].node:GetObject():GetMaterial(0)
+	local sv = characters[i].node:GetInstanceSceneView():GetNode(scene, "character")
+	local body = sv:GetInstanceSceneView():GetNode(scene, "body")
+	characters[i].material = body:GetObject():GetMaterial(0)
 end
 
 -- Setup 2D rendering resources to display eyes textures only when needed.
@@ -116,10 +120,10 @@ local keyboard = hg.Keyboard('raw')
 
 if not open_vr_enabled then
 	local _rot = camera_node:GetTransform():GetRot()
-	_rot.y = _rot.y + math.pi / 8.0
-	_rot.x = _rot.x + math.pi / 16.0
-	camera_node:GetTransform():SetRot(_rot)
-	camera_node:GetCamera():SetFov(math.pi / 2.0)
+	-- _rot.y = _rot.y + math.pi / 8.0
+	-- _rot.x = _rot.x + math.pi / 16.0
+	-- camera_node:GetTransform():SetRot(_rot)
+	camera_node:GetCamera():SetFov(math.pi / 3.75)
 	scene:SetCurrentCamera(camera_node)
 end
 
@@ -137,7 +141,7 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	local dt = hg.TickClock()
 
 	-- character exposition logic
-	if hg.GetClock() - char_change_clock > CHAR_EXPOSE_DURATION then
+	if hg.GetClock() - char_change_clock > CHAR_EXPOSE_DURATION_PAD then
 		char_change_clock = hg.GetClock()
 		character_idx = character_idx + 1
 		if character_idx > #characters then
@@ -151,6 +155,16 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 
 		characters[character_idx].node:Enable()
 	end
+
+	-- fade current character
+	local fade_norm_clock = hg.time_to_sec_f(hg.GetClock() - char_change_clock)
+	fade_norm_clock = clamp(map(fade_norm_clock, 0.0, CHAR_EXPOSE_DURATION_f, 0.0, 1.0), 0.0, 1.0)
+
+	local fade_q = 0.1
+	local fade_char = clamp(map(fade_norm_clock, 0.0, fade_q, 0.0, 1.0), 0.0, 1.0) -- fade in
+	fade_char = fade_char * clamp(map(fade_norm_clock, 1.0 - fade_q, 1.0, 1.0, 0.0), 0.0, 1.0) -- fade out
+
+	hg.SetMaterialValue(characters[character_idx].material, "uFadeFX", hg.Vec4(fade_char, 1.0 - fade_char, 1.0, 1.0))
 
 	scene:Update(dt)
 

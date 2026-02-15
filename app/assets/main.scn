@@ -85,9 +85,7 @@
 			"name": "props/facit/facit.scn"
 		},
 		{
-			"anim": "idle",
-			"loop_mode": "loop",
-			"name": "characters/assistant/assistant_export.scn"
+			"name": "characters/assistant/assistant.scn"
 		},
 		{
 			"name": "props/the_room/the_room.scn"
@@ -1006,7 +1004,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957746505737305,
+				27.957744598388672,
 				0.0,
 				0.0
 			],

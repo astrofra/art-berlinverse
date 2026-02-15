@@ -74,7 +74,7 @@
 			"disabled": false,
 			"idx": 0,
 			"instance": 0,
-			"name": "annelore_sitting_idle"
+			"name": "character"
 		},
 		{
 			"components": [
@@ -85,7 +85,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 43,
+			"idx": 1,
 			"instance": 1,
 			"name": "round_shadow"
 		},
@@ -98,7 +98,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 45,
+			"idx": 2,
 			"instance": 2,
 			"name": "round_shadow"
 		}
@@ -149,7 +149,7 @@
 			],
 			"rot": [
 				-0.0,
-				-28.29107666015625,
+				-28.291074752807617,
 				0.0
 			],
 			"scl": [

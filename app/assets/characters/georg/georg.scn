@@ -71,7 +71,7 @@
 			"disabled": false,
 			"idx": 0,
 			"instance": 0,
-			"name": "georg_idle"
+			"name": "character"
 		},
 		{
 			"components": [
@@ -82,7 +82,7 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 35,
+			"idx": 1,
 			"instance": 1,
 			"name": "round_shadow"
 		}
