@@ -507,7 +507,7 @@
 			"disabled": false,
 			"idx": 17,
 			"instance": 8,
-			"name": "assistant_export"
+			"name": "char_assistant"
 		},
 		{
 			"components": [
@@ -584,7 +584,7 @@
 			"disabled": false,
 			"idx": 23,
 			"instance": 23,
-			"name": "annelore"
+			"name": "char_annelore"
 		},
 		{
 			"components": [
@@ -688,7 +688,7 @@
 			"disabled": false,
 			"idx": 31,
 			"instance": 19,
-			"name": "georg"
+			"name": "char_georg"
 		},
 		{
 			"components": [
@@ -701,7 +701,7 @@
 			"disabled": false,
 			"idx": 32,
 			"instance": 20,
-			"name": "margret"
+			"name": "char_margret"
 		},
 		{
 			"components": [
@@ -1006,7 +1006,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957748413085938,
+				27.957746505737305,
 				0.0,
 				0.0
 			],

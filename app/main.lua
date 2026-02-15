@@ -15,9 +15,13 @@ elseif hg.OpenALInit then
 	audio_initialized = true
 end
 
-SLIDE_SHOW_SPEED = 1.0
 VR_DEBUG_DISPLAY = false
 local run_mode = "play"
+
+local characters = {"char_annelore", "char_georg", "char_margret", "char_assistant"}
+local character_idx = 1
+local char_change_clock = nil
+CHAR_EXPOSE_DURATION = hg.time_from_sec_f(5.0)
 
 -- local res_x, res_y = 768, 576
 -- local res_x, res_y = 800, 600
@@ -110,10 +114,21 @@ end
 
 -- Main loop
 local frame_count = 0
+char_change_clock = hg.GetClock()
 
 while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	keyboard:Update()
 	local dt = hg.TickClock()
+
+	-- character exposition logic
+	if hg.GetClock() - char_change_clock > CHAR_EXPOSE_DURATION then
+		char_change_clock = hg.GetClock()
+		character_idx = character_idx + 1
+		if character_idx > #characters then
+			character_idx = 1
+		end
+		print("Changing to '" .. characters[character_idx] .. "'")
+	end
 
 	scene:Update(dt)
 
