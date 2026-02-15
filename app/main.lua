@@ -52,6 +52,11 @@ hg.RenderReset(res_x, res_y, hg.RF_VSync | hg.RF_MSAA4X | hg.RF_MaxAnisotropy)
 local pipeline = hg.CreateForwardPipeline(2048, false)
 local res = hg.PipelineResources()
 
+--- AAA (to benefit from the render's jittering)
+pipeline_aaa_config = hg.ForwardPipelineAAAConfig()
+pipeline_aaa = hg.CreateForwardPipelineAAAFromAssets("core", pipeline_aaa_config, hg.BR_Equal, hg.BR_Equal)
+pipeline_aaa_config.sample_count = 1
+
 -- VR Stuff
 
 local render_data = hg.SceneForwardPipelineRenderData()  -- this object is used by the low-level scene rendering API to share view-independent data with both eyes
@@ -135,6 +140,7 @@ char_change_clock = hg.GetClock()
 for i = 1, #characters do
 	characters[i].node:Disable()
 end
+local glitch = {0.0, 0.0}
 
 while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	keyboard:Update()
@@ -164,7 +170,22 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	local fade_char = clamp(map(fade_norm_clock, 0.0, fade_q, 0.0, 1.0), 0.0, 1.0) -- fade in
 	fade_char = fade_char * clamp(map(fade_norm_clock, 1.0 - fade_q, 1.0, 1.0, 0.0), 0.0, 1.0) -- fade out
 
-	hg.SetMaterialValue(characters[character_idx].material, "uFadeFX", hg.Vec4(fade_char, 1.0 - fade_char, 1.0, 1.0))
+	hg.SetMaterialValue(characters[character_idx].material, "uFadeFX", 
+			hg.Vec4(
+				clamp(fade_char^0.5 + glitch[1] * fade_char, 0.0, 1.0), -- global fade
+				clamp((1.0 - fade_char) + glitch[2] * fade_char, 0.0, 2.0), -- inner transparency
+				1.0, 1.0)
+			)
+	
+	local _damp = 0.05
+	local j
+	for j = 1,2 do
+		local r = 0.0
+		if (math.random() > 0.95) then
+			r = (-1 + 2.0 * math.random())
+		end
+		glitch[j] = (glitch[j] * (1 - _damp)) + (r * _damp)
+	end
 
 	scene:Update(dt)
 

@@ -164,9 +164,6 @@ void main() {
 	occ_rough_metal.x = clamp(occ_rough_metal.x, 0.0, 1.0);
 	occ_rough_metal.x = pow(occ_rough_metal.x, uAmbient.z);
 
-	if (uFadeFX.x * 2.0 < 1.0 - occ_rough_metal.x)
-		discard;
-
 	vec3 skin_key_color = uSkinColor.xyz * uBaseOpacityColor.xyz;
 	float skin_chroma_key = LinearChromaKey(base_opacity.xyz, skin_key_color);
 	vec3 ao_gray = vec3_splat(occ_rough_metal.x);
@@ -175,11 +172,11 @@ void main() {
 	vec3 ao_color = mix(ao_gray, ao_red_tint, skin_chroma_key * (1.0 - pow(clamp(occ_rough_metal.x, 0.0, 1.0), 2.5)));
 
 	//
-#if USE_SELF_MAP
-	vec4 self = texture2D(uSelfMap, vTexCoord0);
-#else // USE_SELF_MAP
+// #if USE_SELF_MAP
+// 	vec4 self = texture2D(uSelfMap, vTexCoord0);
+// #else // USE_SELF_MAP
 	vec4 self = uSelfColor;
-#endif // USE_SELF_MAP
+// #endif // USE_SELF_MAP
 
 	//
 	vec3 view = mul(u_view, vec4(vWorldPos, 1.0)).xyz;
@@ -216,6 +213,10 @@ void main() {
 #else // FORWARD_PIPELINE_AAA
 	vec4 jitter = vec4_splat(0.);
 #endif // FORWARD_PIPELINE_AAA
+
+	vec4 jitter_custom = texture2D(uSelfMap, mod(gl_FragCoord.xy, vec2(64, 64)) / vec2(64, 64));
+	if (uFadeFX.x * 2.0 < 1.0 - occ_rough_metal.x - (jitter_custom.x - 0.5))
+	 	discard;
 
 	// SLOT 0: linear light
 	{

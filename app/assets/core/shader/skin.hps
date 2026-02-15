@@ -1,5 +1,5 @@
 {
-	"features": ["OptionalBaseColorOpacityMap", "OptionalOcclusionRoughnessMetalnessMap", "OptionalNormalMap", "OptionalSkinning"],
+	"features": ["OptionalBaseColorOpacityMap", "OptionalOcclusionRoughnessMetalnessMap", "OptionalNormalMap", "OptionalSelfMap", "OptionalSkinning"],
 	"uniforms": [
 	{"name": "uAmbient", "type": "Vec4", "value": [0.0, 1.0, 1.0, 0.0]},
 	{"name": "uSkinColor", "type": "Color", "value": [1.0, 0.815, 0.5825, 0.0]},
