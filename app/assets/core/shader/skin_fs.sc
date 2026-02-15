@@ -164,6 +164,9 @@ void main() {
 	occ_rough_metal.x = clamp(occ_rough_metal.x, 0.0, 1.0);
 	occ_rough_metal.x = pow(occ_rough_metal.x, uAmbient.z);
 
+	if (uFadeFX.x * 2.0 < 1.0 - occ_rough_metal.x)
+		discard;
+
 	vec3 skin_key_color = uSkinColor.xyz * uBaseOpacityColor.xyz;
 	float skin_chroma_key = LinearChromaKey(base_opacity.xyz, skin_key_color);
 	vec3 ao_gray = vec3_splat(occ_rough_metal.x);
