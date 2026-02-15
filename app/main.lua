@@ -18,7 +18,12 @@ end
 VR_DEBUG_DISPLAY = false
 local run_mode = "play"
 
-local characters = {"char_annelore", "char_georg", "char_margret", "char_assistant"}
+local characters = {
+	{ name = "char_annelore"},
+	{ name = "char_georg"},
+	{ name = "char_margret"},
+	{ name = "char_assistant"}
+}
 local character_idx = 1
 local char_change_clock = nil
 CHAR_EXPOSE_DURATION = hg.time_from_sec_f(5.0)
@@ -70,6 +75,12 @@ end
 
 -- 3D scene stuff
 
+local i
+for i = 1, #characters do
+	characters[i].node = scene:GetNode(characters[i].name)
+	characters[i].material = characters[i].node:GetObject():GetMaterial(0)
+end
+
 -- Setup 2D rendering resources to display eyes textures only when needed.
 local quad_model, quad_render_state, eye_t_x, quad_matrix, tex0_program
 local quad_uniform_set_value_list, quad_uniform_set_texture_list
@@ -114,7 +125,12 @@ end
 
 -- Main loop
 local frame_count = 0
+
+-- character change init
 char_change_clock = hg.GetClock()
+for i = 1, #characters do
+	characters[i].node:Disable()
+end
 
 while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	keyboard:Update()
@@ -127,7 +143,13 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 		if character_idx > #characters then
 			character_idx = 1
 		end
-		print("Changing to '" .. characters[character_idx] .. "'")
+		print("Changing to '" .. characters[character_idx].name .. "'")
+
+		for i = 1, #characters do
+			characters[i].node:Disable()
+		end
+
+		characters[character_idx].node:Enable()
 	end
 
 	scene:Update(dt)
