@@ -53,6 +53,9 @@
 			"anim": "idle",
 			"loop_mode": "loop",
 			"name": "characters/margret/margret_export.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
 		}
 	],
 	"key_values": null,
@@ -81,6 +84,19 @@
 			"disabled": false,
 			"idx": 1,
 			"name": "Node"
+		},
+		{
+			"components": [
+				2,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 44,
+			"instance": 1,
+			"name": "round_shadow"
 		}
 	],
 	"transforms": [
@@ -118,6 +134,24 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.010962903499603271,
+				0.0
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.7775604128837585,
+				1.0,
+				0.6024338006973267
 			]
 		}
 	]

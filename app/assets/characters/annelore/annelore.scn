@@ -53,6 +53,12 @@
 			"anim": "idle",
 			"loop_mode": "loop",
 			"name": "characters/annelore/idle/annelore_sitting_idle.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
 		}
 	],
 	"key_values": null,
@@ -69,6 +75,32 @@
 			"idx": 0,
 			"instance": 0,
 			"name": "annelore_sitting_idle"
+		},
+		{
+			"components": [
+				1,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 43,
+			"instance": 1,
+			"name": "round_shadow"
+		},
+		{
+			"components": [
+				2,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 45,
+			"instance": 2,
+			"name": "round_shadow"
 		}
 	],
 	"transforms": [
@@ -88,6 +120,42 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.25779908895492554,
+				0.007155239582061768,
+				-0.4674820303916931
+			],
+			"rot": [
+				-0.0,
+				38.21926498413086,
+				0.0
+			],
+			"scl": [
+				0.16556380689144135,
+				1.0,
+				0.32655906677246094
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.28998222947120667,
+				0.007155179977416992,
+				-0.4646338224411011
+			],
+			"rot": [
+				-0.0,
+				-28.29107666015625,
+				0.0
+			],
+			"scl": [
+				0.16556379199028015,
+				1.0,
+				0.32655906677246094
 			]
 		}
 	]

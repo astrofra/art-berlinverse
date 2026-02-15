@@ -53,6 +53,9 @@
 			"anim": "idle",
 			"loop_mode": "loop",
 			"name": "characters/georg/georg_idle.scn"
+		},
+		{
+			"name": "props/square_shadow/round_shadow.scn"
 		}
 	],
 	"key_values": null,
@@ -69,6 +72,19 @@
 			"idx": 0,
 			"instance": 0,
 			"name": "georg_idle"
+		},
+		{
+			"components": [
+				1,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 35,
+			"instance": 1,
+			"name": "round_shadow"
 		}
 	],
 	"transforms": [
@@ -88,6 +104,24 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.015797123312950134,
+				0.0
+			],
+			"rot": [
+				-0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.5562677979469299,
+				1.0,
+				0.43098196387290955
 			]
 		}
 	]

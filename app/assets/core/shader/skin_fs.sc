@@ -11,6 +11,7 @@ uniform vec4 uSelfColor;
 uniform vec4 uAmbient; // x, y: min, max / z : pow to harden the baked ambiant occlusion
 uniform vec4 uSkinColor; // x, y, z : RGB chroma key value for skin detection
 uniform vec4 uRadiance; // Nasty hack to regain some radiance when metalness requires it
+uniform vec4 uFadeFX; // Fade FX (using fake refraction), x : opacity level, y : fresnel curve, 0.0 = opaque
 
 // Texture slots
 SAMPLER2D(uBaseOpacityMap, 0);
@@ -323,15 +324,23 @@ void main() {
 	gl_FragData[0] = vec4(N_view.xyz, vProjPos.z);
 	gl_FragData[1] = vec4(velocity.xy, occ_rough_metal.y, 0.);
 #else // FORWARD_PIPELINE_AAA_PREPASS
+	// View-angle blend:
+	// - front-facing fragments show refraction
+	// - grazing angles shift to the lit surface color
+	float view_mix_power = uFadeFX.y; // >1.0 tightens the side ramp, <1.0 broadens it
+	float view_facing = clamp(dot(N, V), 0.0, 1.0);
+	float side_mix = pow(1.0 - view_facing, view_mix_power);
+	vec3 final_color = mix(refracted_radiance, color, side_mix);
+	final_color = mix(refracted_radiance, final_color, uFadeFX.x);
+
 	// incorrectly apply gamma correction at fragment shader level in the non-AAA pipeline
 #if FORWARD_PIPELINE_AAA != 1
 	float gamma = 2.2;
-	color = pow(color, vec3_splat(1. / gamma));
-	refracted_radiance = pow(refracted_radiance, vec3_splat(1. / gamma));
+	final_color = pow(final_color, vec3_splat(1. / gamma));
 #endif // FORWARD_PIPELINE_AAA != 1
 
-	gl_FragColor = vec4(refracted_radiance, opacity);
-	// gl_FragColor = vec4(color, opacity);
+	// gl_FragColor = vec4(refracted_radiance, opacity);
+	gl_FragColor = vec4(final_color, opacity);
 #endif // FORWARD_PIPELINE_AAA_PREPASS
 #else
 	gl_FragColor = vec4_splat(0.0); // note: fix required to stop glsl-optimizer from removing the whole function body
