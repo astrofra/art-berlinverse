@@ -22,7 +22,8 @@ local characters = {
 	{ name = "char_annelore"},
 	{ name = "char_georg"},
 	{ name = "char_margret"},
-	{ name = "char_assistant"}
+	{ name = "char_assistant"},
+	{ name = "char_lilith"}
 }
 local character_idx = 1
 local char_change_clock = nil
