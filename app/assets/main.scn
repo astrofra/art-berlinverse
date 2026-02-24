@@ -36,7 +36,7 @@
 			255
 		],
 		"fog_far": 50.0,
-		"fog_near": 25.0,
+		"fog_near": 15.0,
 		"probe": {
 			"irradiance_map": "probes/the_room_002.hdr.irradiance",
 			"parallax": 1.0,
@@ -61,82 +61,85 @@
 	},
 	"instances": [
 		{
-			"name": "props/office_chair/SM_OfficeChair02.scn"
+			"name": "props/window/window_export.scn"
 		},
 		{
-			"name": "props/hydrant/hydrant_export.scn"
-		},
-		{
-			"name": "props/radiator/radiator.scn"
-		},
-		{
-			"name": "props/radiator/radiator.scn"
-		},
-		{
-			"name": "props/berlin_fernsehturm/berlin_fernsehturm.scn"
-		},
-		{
-			"name": "props/retro_connection/retro_connection.scn"
-		},
-		{
-			"name": "props/study_corner_essentials/study_corner_essentials.scn"
-		},
-		{
-			"name": "props/facit/facit.scn"
-		},
-		{
-			"name": "characters/assistant/assistant.scn"
-		},
-		{
-			"name": "props/the_room/the_room.scn"
-		},
-		{
-			"name": "props/desk_pen_tray/desk_pen_tray_nostalgy.scn"
-		},
-		{
-			"name": "props/small_chair/SM_Chair05.scn"
-		},
-		{
-			"name": "props/newspaper_000/Newspaper_Bundle_0213164107_texture.scn"
-		},
-		{
-			"name": "props/newspaper_000/Newspaper_Bundle_0213164107_texture.scn"
-		},
-		{
-			"name": "props/miror/miror.scn"
-		},
-		{
-			"name": "props/newspaper_001/Pile_of_newspapers_0213164227_texture.scn"
-		},
-		{
-			"name": "props/newspaper_000/Newspaper_Bundle_0213164107_texture.scn"
-		},
-		{
-			"name": "props/newspaper_001/Pile_of_newspapers_0213164227_texture.scn"
-		},
-		{
-			"name": "props/newspaper_001/Pile_of_newspapers_0213164227_texture.scn"
-		},
-		{
-			"name": "characters/georg/georg.scn"
-		},
-		{
-			"name": "characters/margret/margret.scn"
-		},
-		{
-			"name": "props/entrance_door/door_export.scn"
-		},
-		{
-			"name": "props/berlin_desk/berlin_desk.scn"
-		},
-		{
-			"name": "characters/annelore/annelore.scn"
+			"name": "characters/lilith/lilith.scn"
 		},
 		{
 			"name": "props/flowers/flowers.scn"
 		},
 		{
-			"name": "characters/lilith/lilith.scn"
+			"name": "characters/annelore/annelore.scn"
+		},
+		{
+			"name": "props/berlin_desk/berlin_desk.scn"
+		},
+		{
+			"name": "props/entrance_door/door_export.scn"
+		},
+		{
+			"name": "characters/margret/margret.scn"
+		},
+		{
+			"name": "characters/georg/georg.scn"
+		},
+		{
+			"name": "props/newspaper_001/Pile_of_newspapers_0213164227_texture.scn"
+		},
+		{
+			"name": "props/newspaper_001/Pile_of_newspapers_0213164227_texture.scn"
+		},
+		{
+			"name": "props/newspaper_000/Newspaper_Bundle_0213164107_texture.scn"
+		},
+		{
+			"name": "props/newspaper_001/Pile_of_newspapers_0213164227_texture.scn"
+		},
+		{
+			"name": "props/miror/miror.scn"
+		},
+		{
+			"name": "props/newspaper_000/Newspaper_Bundle_0213164107_texture.scn"
+		},
+		{
+			"name": "props/newspaper_000/Newspaper_Bundle_0213164107_texture.scn"
+		},
+		{
+			"name": "props/small_chair/SM_Chair05.scn"
+		},
+		{
+			"name": "props/desk_pen_tray/desk_pen_tray_nostalgy.scn"
+		},
+		{
+			"name": "props/the_room/the_room.scn"
+		},
+		{
+			"name": "characters/assistant/assistant.scn"
+		},
+		{
+			"name": "props/facit/facit.scn"
+		},
+		{
+			"name": "props/study_corner_essentials/study_corner_essentials.scn"
+		},
+		{
+			"name": "props/retro_connection/retro_connection.scn"
+		},
+		{
+			"name": "props/berlin_fernsehturm/berlin_fernsehturm.scn"
+		},
+		{
+			"name": "props/radiator/radiator.scn"
+		},
+		{
+			"name": "props/radiator/radiator.scn"
+		},
+		{
+			"name": "props/hydrant/hydrant_export.scn"
+		},
+		{
+			"name": "props/office_chair/SM_OfficeChair02.scn"
 		}
 	],
 	"key_values": null,
@@ -206,7 +209,7 @@
 				255,
 				255
 			],
-			"diffuse_intensity": 1.0,
+			"diffuse_intensity": 2.0,
 			"inner_angle": 9.999999747378752e-05,
 			"outer_angle": 0.787141740322113,
 			"priority": 0.0,
@@ -225,7 +228,7 @@
 				255,
 				255
 			],
-			"specular_intensity": 10.0,
+			"specular_intensity": 2.0,
 			"type": "spot"
 		},
 		{
@@ -298,7 +301,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 22,
+			"instance": 4,
 			"name": "berlin_desk"
 		},
 		{
@@ -335,7 +338,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 0,
+			"instance": 26,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -348,7 +351,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 10,
+			"instance": 16,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -361,7 +364,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 11,
+			"instance": 15,
 			"name": "SM_Chair05"
 		},
 		{
@@ -374,7 +377,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 5,
+			"instance": 21,
 			"name": "retro_connection"
 		},
 		{
@@ -387,7 +390,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 6,
+			"instance": 20,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -436,7 +439,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 4,
+			"instance": 22,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -447,7 +450,7 @@
 				2,
 				4294967295
 			],
-			"disabled": true,
+			"disabled": false,
 			"idx": 12,
 			"name": "Light"
 		},
@@ -461,7 +464,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 9,
+			"instance": 17,
 			"name": "the_room"
 		},
 		{
@@ -510,7 +513,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 8,
+			"instance": 18,
 			"name": "char_assistant"
 		},
 		{
@@ -535,7 +538,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 7,
+			"instance": 19,
 			"name": "facit"
 		},
 		{
@@ -548,7 +551,7 @@
 			],
 			"disabled": false,
 			"idx": 20,
-			"instance": 3,
+			"instance": 23,
 			"name": "radiator"
 		},
 		{
@@ -561,7 +564,7 @@
 			],
 			"disabled": false,
 			"idx": 21,
-			"instance": 2,
+			"instance": 24,
 			"name": "radiator"
 		},
 		{
@@ -574,7 +577,7 @@
 			],
 			"disabled": false,
 			"idx": 22,
-			"instance": 1,
+			"instance": 25,
 			"name": "hydrant_export"
 		},
 		{
@@ -587,7 +590,7 @@
 			],
 			"disabled": false,
 			"idx": 23,
-			"instance": 23,
+			"instance": 3,
 			"name": "char_annelore"
 		},
 		{
@@ -600,7 +603,7 @@
 			],
 			"disabled": false,
 			"idx": 24,
-			"instance": 12,
+			"instance": 14,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -626,7 +629,7 @@
 			],
 			"disabled": false,
 			"idx": 26,
-			"instance": 18,
+			"instance": 8,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -639,7 +642,7 @@
 			],
 			"disabled": false,
 			"idx": 27,
-			"instance": 17,
+			"instance": 9,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -652,7 +655,7 @@
 			],
 			"disabled": false,
 			"idx": 28,
-			"instance": 16,
+			"instance": 10,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -665,7 +668,7 @@
 			],
 			"disabled": false,
 			"idx": 29,
-			"instance": 15,
+			"instance": 11,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -678,7 +681,7 @@
 			],
 			"disabled": false,
 			"idx": 30,
-			"instance": 14,
+			"instance": 12,
 			"name": "miror"
 		},
 		{
@@ -691,7 +694,7 @@
 			],
 			"disabled": false,
 			"idx": 31,
-			"instance": 19,
+			"instance": 7,
 			"name": "char_georg"
 		},
 		{
@@ -704,7 +707,7 @@
 			],
 			"disabled": false,
 			"idx": 32,
-			"instance": 20,
+			"instance": 6,
 			"name": "char_margret"
 		},
 		{
@@ -717,7 +720,7 @@
 			],
 			"disabled": false,
 			"idx": 33,
-			"instance": 21,
+			"instance": 5,
 			"name": "door_export"
 		},
 		{
@@ -730,7 +733,7 @@
 			],
 			"disabled": false,
 			"idx": 34,
-			"instance": 24,
+			"instance": 2,
 			"name": "flowers"
 		},
 		{
@@ -743,8 +746,21 @@
 			],
 			"disabled": false,
 			"idx": 35,
-			"instance": 25,
+			"instance": 1,
 			"name": "char_lilith"
+		},
+		{
+			"components": [
+				36,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 36,
+			"instance": 0,
+			"name": "window_export"
 		}
 	],
 	"objects": [
@@ -992,9 +1008,9 @@
 							"name": "uSelfColor",
 							"type": "vec4",
 							"value": [
-								1.2941176891326904,
-								4.019608020782471,
-								5.000000476837158,
+								0.42194098234176636,
+								0.7878011465072632,
+								1.0,
 								-1.0
 							]
 						}
@@ -1036,7 +1052,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957735061645508,
+				27.957733154296875,
 				0.0,
 				0.0
 			],
@@ -1211,8 +1227,8 @@
 		{
 			"parent": null,
 			"pos": [
-				-1.5536729097366333,
-				-1.2463887929916382,
+				-0.9403203725814819,
+				-0.8964856863021851,
 				-25.0
 			],
 			"rot": [
@@ -1229,7 +1245,7 @@
 		{
 			"parent": null,
 			"pos": [
-				-3.226539373397827,
+				-1.4975874423980713,
 				13.144915580749512,
 				-23.15060806274414
 			],
@@ -1239,8 +1255,8 @@
 				154.44155883789063
 			],
 			"scl": [
-				0.9999998211860657,
-				1.0,
+				0.9999998807907104,
+				1.0000001192092896,
 				1.0000001192092896
 			]
 		},
@@ -1266,8 +1282,8 @@
 			"parent": null,
 			"pos": [
 				0.0,
-				1.9931422472000122,
-				-5.0045366287231445
+				2.0,
+				-46.276710510253906
 			],
 			"rot": [
 				89.99994659423828,
@@ -1275,9 +1291,9 @@
 				0.0
 			],
 			"scl": [
-				1.7999999523162842,
-				2.0,
-				2.25
+				50.0,
+				50.0,
+				50.0
 			]
 		},
 		{
@@ -1625,7 +1641,7 @@
 		{
 			"parent": null,
 			"pos": [
-				0.6701717376708984,
+				0.7508796453475952,
 				0.7686243653297424,
 				-0.43750935792922974
 			],
@@ -1635,9 +1651,9 @@
 				0.0
 			],
 			"scl": [
-				0.9999999403953552,
+				0.9999998211860657,
 				1.0,
-				0.9999999403953552
+				0.9999998211860657
 			]
 		},
 		{
@@ -1656,6 +1672,24 @@
 				1.0499999523162842,
 				1.0499999523162842,
 				1.0499999523162842
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.0,
+				-0.8500000238418579
+			],
+			"rot": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
 			]
 		}
 	]
