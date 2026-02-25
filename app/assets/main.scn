@@ -61,9 +61,6 @@
 	},
 	"instances": [
 		{
-			"name": "props/window/window_export.scn"
-		},
-		{
 			"name": "characters/lilith/lilith.scn"
 		},
 		{
@@ -140,6 +137,21 @@
 		},
 		{
 			"name": "props/office_chair/SM_OfficeChair02.scn"
+		},
+		{
+			"name": "props/building_000/building_000_export.scn"
+		},
+		{
+			"name": "props/building_000/building_000_export.scn"
+		},
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/square_shadow/square_shadow.scn"
+		},
+		{
+			"name": "props/window/window_export.scn"
 		}
 	],
 	"key_values": null,
@@ -301,7 +313,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 4,
+			"instance": 3,
 			"name": "berlin_desk"
 		},
 		{
@@ -338,7 +350,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 26,
+			"instance": 25,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -351,7 +363,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 16,
+			"instance": 15,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -364,7 +376,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 15,
+			"instance": 14,
 			"name": "SM_Chair05"
 		},
 		{
@@ -377,7 +389,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 21,
+			"instance": 20,
 			"name": "retro_connection"
 		},
 		{
@@ -390,7 +402,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 20,
+			"instance": 19,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -439,7 +451,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 22,
+			"instance": 21,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -464,7 +476,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 17,
+			"instance": 16,
 			"name": "the_room"
 		},
 		{
@@ -513,7 +525,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 18,
+			"instance": 17,
 			"name": "char_assistant"
 		},
 		{
@@ -538,7 +550,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 19,
+			"instance": 18,
 			"name": "facit"
 		},
 		{
@@ -551,7 +563,7 @@
 			],
 			"disabled": false,
 			"idx": 20,
-			"instance": 23,
+			"instance": 22,
 			"name": "radiator"
 		},
 		{
@@ -564,7 +576,7 @@
 			],
 			"disabled": false,
 			"idx": 21,
-			"instance": 24,
+			"instance": 23,
 			"name": "radiator"
 		},
 		{
@@ -577,7 +589,7 @@
 			],
 			"disabled": false,
 			"idx": 22,
-			"instance": 25,
+			"instance": 24,
 			"name": "hydrant_export"
 		},
 		{
@@ -590,7 +602,7 @@
 			],
 			"disabled": false,
 			"idx": 23,
-			"instance": 3,
+			"instance": 2,
 			"name": "char_annelore"
 		},
 		{
@@ -603,7 +615,7 @@
 			],
 			"disabled": false,
 			"idx": 24,
-			"instance": 14,
+			"instance": 13,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -616,7 +628,7 @@
 			],
 			"disabled": false,
 			"idx": 25,
-			"instance": 13,
+			"instance": 12,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -629,7 +641,7 @@
 			],
 			"disabled": false,
 			"idx": 26,
-			"instance": 8,
+			"instance": 7,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -642,7 +654,7 @@
 			],
 			"disabled": false,
 			"idx": 27,
-			"instance": 9,
+			"instance": 8,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -655,7 +667,7 @@
 			],
 			"disabled": false,
 			"idx": 28,
-			"instance": 10,
+			"instance": 9,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -668,7 +680,7 @@
 			],
 			"disabled": false,
 			"idx": 29,
-			"instance": 11,
+			"instance": 10,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -681,7 +693,7 @@
 			],
 			"disabled": false,
 			"idx": 30,
-			"instance": 12,
+			"instance": 11,
 			"name": "miror"
 		},
 		{
@@ -694,7 +706,7 @@
 			],
 			"disabled": false,
 			"idx": 31,
-			"instance": 7,
+			"instance": 6,
 			"name": "char_georg"
 		},
 		{
@@ -707,7 +719,7 @@
 			],
 			"disabled": false,
 			"idx": 32,
-			"instance": 6,
+			"instance": 5,
 			"name": "char_margret"
 		},
 		{
@@ -720,7 +732,7 @@
 			],
 			"disabled": false,
 			"idx": 33,
-			"instance": 5,
+			"instance": 4,
 			"name": "door_export"
 		},
 		{
@@ -733,7 +745,7 @@
 			],
 			"disabled": false,
 			"idx": 34,
-			"instance": 2,
+			"instance": 1,
 			"name": "flowers"
 		},
 		{
@@ -746,7 +758,7 @@
 			],
 			"disabled": false,
 			"idx": 35,
-			"instance": 1,
+			"instance": 0,
 			"name": "char_lilith"
 		},
 		{
@@ -759,7 +771,7 @@
 			],
 			"disabled": false,
 			"idx": 36,
-			"instance": 0,
+			"instance": 30,
 			"name": "window_export"
 		},
 		{
@@ -771,8 +783,84 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 391,
+			"idx": 37,
 			"name": "sky"
+		},
+		{
+			"components": [
+				38,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 38,
+			"instance": 26,
+			"name": "building_000_export"
+		},
+		{
+			"components": [
+				39,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 39,
+			"instance": 27,
+			"name": "building_000_export"
+		},
+		{
+			"components": [
+				41,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 40,
+			"instance": 28,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				40,
+				4294967295,
+				5,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 41,
+			"name": "essentials_folders"
+		},
+		{
+			"components": [
+				43,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 42,
+			"instance": 29,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				42,
+				4294967295,
+				6,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 43,
+			"name": "essentials_folders"
 		}
 	],
 	"objects": [
@@ -1045,7 +1133,7 @@
 			],
 			"materials": [
 				{
-					"blend_mode": "screen",
+					"blend_mode": "lighten",
 					"depth_test": "less",
 					"face_culling": "cw",
 					"flags": [],
@@ -1090,6 +1178,150 @@
 				}
 			],
 			"name": "props/primitives/plane.geo"
+		},
+		{
+			"bones": [],
+			"material_infos": [
+				{
+					"name": "study_corner_essentials"
+				}
+			],
+			"materials": [
+				{
+					"blend_mode": "opaque",
+					"depth_test": "less",
+					"face_culling": "cw",
+					"flags": [],
+					"program": "core/shader/pbr.hps",
+					"textures": [
+						{
+							"name": "uBaseOpacityMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_albedo.png",
+							"stage": 0
+						},
+						{
+							"name": "uNormalMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_normal.png",
+							"stage": 2
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_lamp_orm.png",
+							"stage": 1
+						}
+					],
+					"values": [
+						{
+							"name": "uBaseOpacityColor",
+							"type": "vec4",
+							"value": [
+								0.5,
+								0.5,
+								0.5,
+								1.0
+							]
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessColor",
+							"type": "vec4",
+							"value": [
+								1.0,
+								0.5,
+								0.25,
+								0.0
+							]
+						},
+						{
+							"name": "uSelfColor",
+							"type": "vec4",
+							"value": [
+								0.0,
+								0.0,
+								0.0,
+								-1.0
+							]
+						}
+					],
+					"write_a": true,
+					"write_b": true,
+					"write_g": true,
+					"write_r": true,
+					"write_z": true
+				}
+			],
+			"name": "props/study_corner_essentials/essentials_folders_44.geo"
+		},
+		{
+			"bones": [],
+			"material_infos": [
+				{
+					"name": "study_corner_essentials"
+				}
+			],
+			"materials": [
+				{
+					"blend_mode": "opaque",
+					"depth_test": "less",
+					"face_culling": "cw",
+					"flags": [],
+					"program": "core/shader/pbr.hps",
+					"textures": [
+						{
+							"name": "uBaseOpacityMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_albedo.png",
+							"stage": 0
+						},
+						{
+							"name": "uNormalMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_normal.png",
+							"stage": 2
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessMap",
+							"path": "props/study_corner_essentials/study_corner_essentials_lamp_orm.png",
+							"stage": 1
+						}
+					],
+					"values": [
+						{
+							"name": "uBaseOpacityColor",
+							"type": "vec4",
+							"value": [
+								0.5,
+								0.5,
+								0.5,
+								1.0
+							]
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessColor",
+							"type": "vec4",
+							"value": [
+								1.0,
+								0.5,
+								0.25,
+								0.0
+							]
+						},
+						{
+							"name": "uSelfColor",
+							"type": "vec4",
+							"value": [
+								0.0,
+								0.0,
+								0.0,
+								-1.0
+							]
+						}
+					],
+					"write_a": true,
+					"write_b": true,
+					"write_g": true,
+					"write_r": true,
+					"write_z": true
+				}
+			],
+			"name": "props/study_corner_essentials/essentials_folders_44.geo"
 		}
 	],
 	"transforms": [
@@ -1119,7 +1351,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957731246948242,
+				27.95772933959961,
 				0.0,
 				0.0
 			],
@@ -1241,8 +1473,8 @@
 			"parent": null,
 			"pos": [
 				-0.2540520429611206,
-				-1.4027776718139648,
-				-2.926191568374634
+				-1.6035826206207275,
+				-2.8617513179779053
 			],
 			"rot": [
 				-7.0167078561561656e-15,
@@ -1708,9 +1940,9 @@
 		{
 			"parent": null,
 			"pos": [
-				0.7508796453475952,
-				0.7686243653297424,
-				-0.43750935792922974
+				0.46109938621520996,
+				0.9743722677230835,
+				-5.109768867492676
 			],
 			"rot": [
 				-0.0,
@@ -1718,9 +1950,9 @@
 				0.0
 			],
 			"scl": [
-				0.9999998211860657,
+				0.999998927116394,
 				1.0,
-				0.9999998211860657
+				0.999998927116394
 			]
 		},
 		{
@@ -1775,6 +2007,114 @@
 				1.135575771331787,
 				1.0,
 				1.6885937452316284
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				4.580052375793457,
+				1.2723819017410278,
+				-19.91180419921875
+			],
+			"rot": [
+				-0.0,
+				-178.35592651367188,
+				0.0
+			],
+			"scl": [
+				5.0,
+				5.0,
+				5.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-4.9930419921875,
+				2.247861385345459,
+				-19.91180419921875
+			],
+			"rot": [
+				-0.0,
+				-100.02405548095703,
+				0.0
+			],
+			"scl": [
+				4.999997615814209,
+				5.0,
+				4.999997615814209
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-2.575528860092163,
+				0.0010212026536464691,
+				-1.2212443351745605
+			],
+			"rot": [
+				89.99995422363281,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.44999998807907104,
+				0.44999998807907104,
+				0.44999998807907104
+			]
+		},
+		{
+			"parent": 41,
+			"pos": [
+				0.016985416412353516,
+				0.033732444047927856,
+				-0.011866935528814793
+			],
+			"rot": [
+				-89.99995422363281,
+				0.0,
+				0.0
+			],
+			"scl": [
+				0.8884186148643494,
+				0.9999995231628418,
+				0.9868265390396118
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-2.5961005687713623,
+				0.22568191587924957,
+				-1.234588861465454
+			],
+			"rot": [
+				-89.99994659423828,
+				-179.99998474121094,
+				0.0
+			],
+			"scl": [
+				0.4499998986721039,
+				0.4499998986721039,
+				0.44999998807907104
+			]
+		},
+		{
+			"parent": 43,
+			"pos": [
+				0.016985416412353516,
+				0.03373223915696144,
+				-0.246888667345047
+			],
+			"rot": [
+				-89.99994659423828,
+				179.99998474121094,
+				-1.0579886975392583e-06
+			],
+			"scl": [
+				0.8884186148643494,
+				0.9999995827674866,
+				0.986826479434967
 			]
 		}
 	]
