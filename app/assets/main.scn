@@ -761,6 +761,18 @@
 			"idx": 36,
 			"instance": 0,
 			"name": "window_export"
+		},
+		{
+			"components": [
+				37,
+				4294967295,
+				4,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 391,
+			"name": "sky"
 		}
 	],
 	"objects": [
@@ -1023,6 +1035,61 @@
 				}
 			],
 			"name": "props/primitives/plane.geo"
+		},
+		{
+			"bones": [],
+			"material_infos": [
+				{
+					"name": "default"
+				}
+			],
+			"materials": [
+				{
+					"blend_mode": "screen",
+					"depth_test": "less",
+					"face_culling": "cw",
+					"flags": [],
+					"program": "core/shader/pbr.hps",
+					"values": [
+						{
+							"name": "uBaseOpacityColor",
+							"type": "vec4",
+							"value": [
+								0.0,
+								0.0,
+								0.0,
+								1.0
+							]
+						},
+						{
+							"name": "uOcclusionRoughnessMetalnessColor",
+							"type": "vec4",
+							"value": [
+								0.0,
+								0.9459999799728394,
+								0.0,
+								1.0
+							]
+						},
+						{
+							"name": "uSelfColor",
+							"type": "vec4",
+							"value": [
+								0.03921568766236305,
+								0.03921568766236305,
+								0.03921568766236305,
+								-1.0
+							]
+						}
+					],
+					"write_a": true,
+					"write_b": true,
+					"write_g": true,
+					"write_r": true,
+					"write_z": true
+				}
+			],
+			"name": "props/primitives/plane.geo"
 		}
 	],
 	"transforms": [
@@ -1052,7 +1119,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957733154296875,
+				27.957731246948242,
 				0.0,
 				0.0
 			],
@@ -1291,7 +1358,7 @@
 				0.0
 			],
 			"scl": [
-				50.0,
+				150.0,
 				50.0,
 				50.0
 			]
@@ -1690,6 +1757,24 @@
 				1.0,
 				1.0,
 				1.0
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				-0.007527559995651245,
+				2.0,
+				-5.811305046081543
+			],
+			"rot": [
+				89.99994659423828,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.135575771331787,
+				1.0,
+				1.6885937452316284
 			]
 		}
 	]
