@@ -254,7 +254,7 @@ void main() {
 	float lod_level = log2(dd);
 #endif
 
-	vec3 irradiance = textureCube(uIrradianceMap, ReprojectProbe(P, N)).xyz * uAmbientColor.y;
+	vec3 irradiance = textureCube(uIrradianceMap, ReprojectProbe(P, N)).xyz * uAmbientColor.y * uRadiance.y;
 	vec3 radiance = textureCubeLod(uRadianceMap, ReprojectProbe(P, R), occ_rough_metal.y * MAX_REFLECTION_LOD).xyz * uAmbientColor.x * irradiance_factor * uRadiance.x;
 
 #if FORWARD_PIPELINE_AAA
