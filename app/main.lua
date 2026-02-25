@@ -15,7 +15,7 @@ elseif hg.OpenALInit then
 	audio_initialized = true
 end
 
-VR_DEBUG_DISPLAY = false
+VR_DEBUG_DISPLAY = true
 local run_mode = "play"
 
 local characters = {
@@ -119,7 +119,8 @@ scene:SetCurrentCamera(camera_node)
 local initial_head_pos = hg.Vec3(0, 0, 0)
 if open_vr_enabled then
 	initial_head_pos = hg.GetTranslation(camera_node:GetTransform():GetWorld())
-	initial_head_pos.y = 0.0
+	initial_head_pos.y = 0.175
+	initial_head_pos.z = initial_head_pos.z - 2.0
 end
 
 local keyboard = hg.Keyboard('raw')
@@ -196,7 +197,7 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 
 	-- vr
 	if open_vr_enabled then
-		local actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, 0, 0))
+		local actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, math.pi, 0))
 
 		local vr_state = hg.OpenVRGetState(actor_body_mtx, 0.05, 1000)
 		local left, right = hg.OpenVRStateToViewState(vr_state)
