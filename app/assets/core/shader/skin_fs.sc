@@ -153,7 +153,6 @@ void main() {
 	vec4 base_opacity = uBaseOpacityColor;
 #endif // USE_BASE_COLOR_OPACITY_MAP
 
-#if DEPTH_ONLY != 1
 #if USE_OCCLUSION_ROUGHNESS_METALNESS_MAP
 	vec4 occ_rough_metal = texture2D(uOcclusionRoughnessMetalnessMap, vTexCoord0);
 #else // USE_OCCLUSION_ROUGHNESS_METALNESS_MAP
@@ -163,6 +162,12 @@ void main() {
 	occ_rough_metal.x = map(occ_rough_metal.x, uAmbient.x, uAmbient.y, 0.0, 1.0);
 	occ_rough_metal.x = clamp(occ_rough_metal.x, 0.0, 1.0);
 	occ_rough_metal.x = pow(occ_rough_metal.x, uAmbient.z);
+
+	vec4 jitter_custom = texture2D(uSelfMap, mod(gl_FragCoord.xy, vec2(64, 64)) / vec2(64, 64));
+	if (uFadeFX.x * 2.0 < 1.0 - occ_rough_metal.x - (jitter_custom.x - 0.5))
+	 	discard;
+
+#if DEPTH_ONLY != 1
 
 	vec3 skin_key_color = uSkinColor.xyz * uBaseOpacityColor.xyz;
 	float skin_chroma_key = LinearChromaKey(base_opacity.xyz, skin_key_color);
@@ -213,10 +218,6 @@ void main() {
 #else // FORWARD_PIPELINE_AAA
 	vec4 jitter = vec4_splat(0.);
 #endif // FORWARD_PIPELINE_AAA
-
-	vec4 jitter_custom = texture2D(uSelfMap, mod(gl_FragCoord.xy, vec2(64, 64)) / vec2(64, 64));
-	if (uFadeFX.x * 2.0 < 1.0 - occ_rough_metal.x - (jitter_custom.x - 0.5))
-	 	discard;
 
 	// SLOT 0: linear light
 	{

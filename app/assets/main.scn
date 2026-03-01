@@ -64,9 +64,6 @@
 			"name": "characters/lilith/lilith.scn"
 		},
 		{
-			"name": "props/flowers/flowers.scn"
-		},
-		{
 			"name": "characters/annelore/annelore.scn"
 		},
 		{
@@ -321,7 +318,7 @@
 			],
 			"disabled": false,
 			"idx": 0,
-			"instance": 3,
+			"instance": 2,
 			"name": "berlin_desk"
 		},
 		{
@@ -358,7 +355,7 @@
 			],
 			"disabled": false,
 			"idx": 3,
-			"instance": 25,
+			"instance": 24,
 			"name": "SM_OfficeChair02"
 		},
 		{
@@ -371,7 +368,7 @@
 			],
 			"disabled": false,
 			"idx": 4,
-			"instance": 15,
+			"instance": 14,
 			"name": "desk_pen_tray_nostalgy"
 		},
 		{
@@ -384,7 +381,7 @@
 			],
 			"disabled": false,
 			"idx": 5,
-			"instance": 14,
+			"instance": 13,
 			"name": "SM_Chair05"
 		},
 		{
@@ -397,7 +394,7 @@
 			],
 			"disabled": false,
 			"idx": 6,
-			"instance": 20,
+			"instance": 19,
 			"name": "retro_connection"
 		},
 		{
@@ -410,7 +407,7 @@
 			],
 			"disabled": false,
 			"idx": 7,
-			"instance": 19,
+			"instance": 18,
 			"name": "study_corner_essentials"
 		},
 		{
@@ -459,7 +456,7 @@
 			],
 			"disabled": false,
 			"idx": 11,
-			"instance": 21,
+			"instance": 20,
 			"name": "berlin_fernsehturm"
 		},
 		{
@@ -484,7 +481,7 @@
 			],
 			"disabled": false,
 			"idx": 13,
-			"instance": 16,
+			"instance": 15,
 			"name": "the_room"
 		},
 		{
@@ -533,7 +530,7 @@
 			],
 			"disabled": false,
 			"idx": 17,
-			"instance": 17,
+			"instance": 16,
 			"name": "char_assistant"
 		},
 		{
@@ -558,7 +555,7 @@
 			],
 			"disabled": false,
 			"idx": 19,
-			"instance": 18,
+			"instance": 17,
 			"name": "facit"
 		},
 		{
@@ -571,7 +568,7 @@
 			],
 			"disabled": false,
 			"idx": 20,
-			"instance": 22,
+			"instance": 21,
 			"name": "radiator"
 		},
 		{
@@ -584,7 +581,7 @@
 			],
 			"disabled": false,
 			"idx": 21,
-			"instance": 23,
+			"instance": 22,
 			"name": "radiator"
 		},
 		{
@@ -597,7 +594,7 @@
 			],
 			"disabled": true,
 			"idx": 22,
-			"instance": 24,
+			"instance": 23,
 			"name": "hydrant_export"
 		},
 		{
@@ -610,7 +607,7 @@
 			],
 			"disabled": false,
 			"idx": 23,
-			"instance": 2,
+			"instance": 1,
 			"name": "char_annelore"
 		},
 		{
@@ -623,7 +620,7 @@
 			],
 			"disabled": false,
 			"idx": 24,
-			"instance": 13,
+			"instance": 12,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -636,7 +633,7 @@
 			],
 			"disabled": false,
 			"idx": 25,
-			"instance": 12,
+			"instance": 11,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -649,7 +646,7 @@
 			],
 			"disabled": false,
 			"idx": 26,
-			"instance": 7,
+			"instance": 6,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -662,7 +659,7 @@
 			],
 			"disabled": false,
 			"idx": 27,
-			"instance": 8,
+			"instance": 7,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -675,7 +672,7 @@
 			],
 			"disabled": false,
 			"idx": 28,
-			"instance": 9,
+			"instance": 8,
 			"name": "Newspaper_Bundle_0213164107_texture"
 		},
 		{
@@ -688,7 +685,7 @@
 			],
 			"disabled": false,
 			"idx": 29,
-			"instance": 10,
+			"instance": 9,
 			"name": "Pile_of_newspapers_0213164227_texture"
 		},
 		{
@@ -701,7 +698,7 @@
 			],
 			"disabled": false,
 			"idx": 30,
-			"instance": 11,
+			"instance": 10,
 			"name": "miror"
 		},
 		{
@@ -714,7 +711,7 @@
 			],
 			"disabled": false,
 			"idx": 31,
-			"instance": 6,
+			"instance": 5,
 			"name": "char_georg"
 		},
 		{
@@ -727,7 +724,7 @@
 			],
 			"disabled": false,
 			"idx": 32,
-			"instance": 5,
+			"instance": 4,
 			"name": "char_margret"
 		},
 		{
@@ -740,7 +737,7 @@
 			],
 			"disabled": false,
 			"idx": 33,
-			"instance": 4,
+			"instance": 3,
 			"name": "door_export"
 		},
 		{
@@ -753,8 +750,8 @@
 			],
 			"disabled": false,
 			"idx": 34,
-			"instance": 1,
-			"name": "flowers"
+			"instance": 0,
+			"name": "char_lilith"
 		},
 		{
 			"components": [
@@ -766,33 +763,33 @@
 			],
 			"disabled": false,
 			"idx": 35,
-			"instance": 0,
-			"name": "char_lilith"
-		},
-		{
-			"components": [
-				36,
-				4294967295,
-				4294967295,
-				4294967295,
-				4294967295
-			],
-			"disabled": false,
-			"idx": 36,
-			"instance": 30,
+			"instance": 29,
 			"name": "window_export"
 		},
 		{
 			"components": [
-				37,
+				36,
 				4294967295,
 				4,
 				4294967295,
 				4294967295
 			],
 			"disabled": false,
-			"idx": 37,
+			"idx": 36,
 			"name": "sky"
+		},
+		{
+			"components": [
+				37,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 37,
+			"instance": 25,
+			"name": "building_000_export"
 		},
 		{
 			"components": [
@@ -802,47 +799,59 @@
 				4294967295,
 				4294967295
 			],
-			"disabled": false,
+			"disabled": true,
 			"idx": 38,
 			"instance": 26,
 			"name": "building_000_export"
 		},
 		{
 			"components": [
-				39,
-				4294967295,
-				4294967295,
-				4294967295,
-				4294967295
-			],
-			"disabled": true,
-			"idx": 39,
-			"instance": 27,
-			"name": "building_000_export"
-		},
-		{
-			"components": [
-				41,
+				40,
 				4294967295,
 				4294967295,
 				4294967295,
 				4294967295
 			],
 			"disabled": false,
-			"idx": 40,
-			"instance": 28,
+			"idx": 39,
+			"instance": 27,
 			"name": "square_shadow"
 		},
 		{
 			"components": [
-				40,
+				39,
 				4294967295,
 				5,
 				4294967295,
 				4294967295
 			],
 			"disabled": false,
+			"idx": 40,
+			"name": "essentials_folders"
+		},
+		{
+			"components": [
+				42,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
 			"idx": 41,
+			"instance": 28,
+			"name": "square_shadow"
+		},
+		{
+			"components": [
+				41,
+				4294967295,
+				6,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 42,
 			"name": "essentials_folders"
 		},
 		{
@@ -854,21 +863,9 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 42,
-			"instance": 29,
-			"name": "square_shadow"
-		},
-		{
-			"components": [
-				42,
-				4294967295,
-				6,
-				4294967295,
-				4294967295
-			],
-			"disabled": false,
 			"idx": 43,
-			"name": "essentials_folders"
+			"instance": 30,
+			"name": "board"
 		},
 		{
 			"components": [
@@ -881,19 +878,6 @@
 			"disabled": false,
 			"idx": 44,
 			"instance": 31,
-			"name": "board"
-		},
-		{
-			"components": [
-				45,
-				4294967295,
-				4294967295,
-				4294967295,
-				4294967295
-			],
-			"disabled": false,
-			"idx": 406,
-			"instance": 32,
 			"name": "flowers"
 		}
 	],
@@ -1385,7 +1369,7 @@
 				-4.685764312744141
 			],
 			"rot": [
-				27.957721710205078,
+				27.957717895507813,
 				0.0,
 				0.0
 			],
@@ -1974,24 +1958,6 @@
 		{
 			"parent": null,
 			"pos": [
-				0.46109938621520996,
-				0.9743722677230835,
-				-5.109768867492676
-			],
-			"rot": [
-				-0.0,
-				168.4140625,
-				0.0
-			],
-			"scl": [
-				0.999998927116394,
-				1.0,
-				0.999998927116394
-			]
-		},
-		{
-			"parent": null,
-			"pos": [
 				-1.1501929759979248,
 				0.0,
 				-3.3002710342407227
@@ -2098,7 +2064,7 @@
 			]
 		},
 		{
-			"parent": 41,
+			"parent": 40,
 			"pos": [
 				0.016985416412353516,
 				0.033732444047927856,
@@ -2124,7 +2090,7 @@
 			],
 			"rot": [
 				-89.99994659423828,
-				-179.9999237060547,
+				-179.99989318847656,
 				0.0
 			],
 			"scl": [
@@ -2134,7 +2100,7 @@
 			]
 		},
 		{
-			"parent": 43,
+			"parent": 42,
 			"pos": [
 				0.016985416412353516,
 				0.03373223915696144,
@@ -2142,7 +2108,7 @@
 			],
 			"rot": [
 				-89.99994659423828,
-				179.9999237060547,
+				179.99989318847656,
 				-1.0579883564787451e-06
 			],
 			"scl": [
@@ -2172,13 +2138,13 @@
 		{
 			"parent": null,
 			"pos": [
-				0.16916990280151367,
-				0.7680906653404236,
-				-0.47486019134521484
+				0.6713777780532837,
+				0.7691915035247803,
+				-0.13028234243392944
 			],
 			"rot": [
 				-0.0,
-				78.1604232788086,
+				78.16041564941406,
 				0.0
 			],
 			"scl": [
