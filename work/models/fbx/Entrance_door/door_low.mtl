@@ -1,0 +1,18 @@
+# 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
+# File Created: 14.02.2026 12:00:50
+
+newmtl Material_001
+	Kd 0.800000011921 0.800000011921 0.800000011921
+	Ks 0.800000011921 0.800000011921 0.800000011921
+	Tr 0.000000000000
+	d 1.000000000000
+	Tf 0.000000000000 0.000000000000 0.000000000000
+	Pr 0.535614371300
+	Pm 0.000000000000
+	Pc 0.000000000000
+	Pcr 0.000000000000
+	Ni 1.519999980927
+	Ke 0.000000000000 0.000000000000 0.000000000000
+	illum 2
+	map_Kd C:\works\projects\art-berlinverse\work\models\fbx\Entrance_door\low_The_Green_Walled_Door_0214091728_texture_fbx\Meshy_AI_The_Green_Walled_Door_0214091728_texture.fbm\Baked_BaseColor.png
+	norm C:\works\projects\art-berlinverse\work\models\fbx\Entrance_door\low_The_Green_Walled_Door_0214091728_texture_fbx\Meshy_AI_The_Green_Walled_Door_0214091728_texture.fbm\Baked_Normal.png
