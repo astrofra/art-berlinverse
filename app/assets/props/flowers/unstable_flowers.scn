@@ -7,7 +7,110 @@
 						"keys": [
 							{
 								"t": 0,
+								"v": false
+							},
+							{
+								"t": 15350769300,
 								"v": true
+							},
+							{
+								"t": 26934967000,
+								"v": false
+							},
+							{
+								"t": 45585800900,
+								"v": true
+							},
+							{
+								"t": 55986354300,
+								"v": false
+							},
+							{
+								"t": 71253685100,
+								"v": true
+							},
+							{
+								"t": 90000001024,
+								"v": false
+							}
+						],
+						"target": "Enable"
+					}
+				],
+				"flags": [],
+				"instance_anim": {
+					"keys": [
+						{
+							"loop": "none",
+							"name": "fade_in",
+							"scale": 1.0,
+							"t": 15350769300
+						},
+						{
+							"loop": "none",
+							"name": "fade_out",
+							"scale": 1.0,
+							"t": 22967878500
+						},
+						{
+							"loop": "none",
+							"name": "fade_in",
+							"scale": 1.0,
+							"t": 45585800900
+						},
+						{
+							"loop": "none",
+							"name": "fade_out",
+							"scale": 1.0,
+							"t": 51952603700
+						},
+						{
+							"loop": "none",
+							"name": "fade_in",
+							"scale": 1.0,
+							"t": 71253685100
+						},
+						{
+							"loop": "none",
+							"name": "fade_out",
+							"scale": 1.0,
+							"t": 86471092700
+						}
+					]
+				},
+				"t_end": 0,
+				"t_start": 0
+			},
+			"idx": 12
+		},
+		{
+			"anim": {
+				"bool": [
+					{
+						"keys": [
+							{
+								"t": 0,
+								"v": true
+							},
+							{
+								"t": 15350769300,
+								"v": false
+							},
+							{
+								"t": 26934967000,
+								"v": true
+							},
+							{
+								"t": 45585800900,
+								"v": false
+							},
+							{
+								"t": 55986354300,
+								"v": true
+							},
+							{
+								"t": 71253685100,
+								"v": false
 							}
 						],
 						"target": "Enable"
@@ -21,69 +124,43 @@
 							"name": "fade_in",
 							"scale": 1.0,
 							"t": 0
-						}
-					]
-				},
-				"t_end": 0,
-				"t_start": 0
-			},
-			"idx": 2
-		},
-		{
-			"anim": {
-				"bool": [
-					{
-						"keys": [
-							{
-								"t": 0,
-								"v": false
-							},
-							{
-								"t": 3000000000,
-								"v": true
-							}
-						],
-						"target": "Enable"
-					}
-				],
-				"flags": [],
-				"t_end": 0,
-				"t_start": 0
-			},
-			"idx": 3
-		},
-		{
-			"anim": {
-				"bool": [
-					{
-						"keys": [
-							{
-								"t": 0,
-								"v": true
-							},
-							{
-								"t": 5000000000,
-								"v": false
-							}
-						],
-						"target": "Enable"
-					}
-				],
-				"flags": [],
-				"instance_anim": {
-					"keys": [
+						},
 						{
 							"loop": "none",
 							"name": "fade_out",
 							"scale": 1.0,
-							"t": 0
+							"t": 11383653700
+						},
+						{
+							"loop": "none",
+							"name": "fade_in",
+							"scale": 1.0,
+							"t": 26934967000
+						},
+						{
+							"loop": "none",
+							"name": "fade_out",
+							"scale": 1.0,
+							"t": 41718800900
+						},
+						{
+							"loop": "none",
+							"name": "fade_in",
+							"scale": 1.0,
+							"t": 55986354300
+						},
+						{
+							"loop": "none",
+							"name": "fade_out",
+							"scale": 1.0,
+							"t": 67086770500
 						}
 					]
 				},
 				"t_end": 0,
 				"t_start": 0
 			},
-			"idx": 4
+			"idx": 13
 		},
 		{
 			"anim": {
@@ -93,10 +170,6 @@
 							{
 								"t": 0,
 								"v": true
-							},
-							{
-								"t": 2000000000,
-								"v": false
 							}
 						],
 						"target": "Enable"
@@ -106,16 +179,35 @@
 				"t_end": 0,
 				"t_start": 0
 			},
-			"idx": 5
+			"idx": 14
+		},
+		{
+			"anim": {
+				"bool": [
+					{
+						"keys": [
+							{
+								"t": 0,
+								"v": true
+							}
+						],
+						"target": "Enable"
+					}
+				],
+				"flags": [],
+				"t_end": 0,
+				"t_start": 0
+			},
+			"idx": 15
 		}
 	],
 	"canvas": {
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			104,
-			104,
-			104,
+			63,
+			63,
+			63,
 			255
 		]
 	},
@@ -160,10 +252,10 @@
 	},
 	"instances": [
 		{
-			"name": "props/flowers/Dry_Leaves_in_a_Pot_0221141111_texture.scn"
+			"name": "props/flowers/flowers.scn"
 		},
 		{
-			"name": "props/square_shadow/round_shadow.scn"
+			"name": "props/flowers_green/flowers_green.scn"
 		}
 	],
 	"key_values": null,
@@ -179,7 +271,7 @@
 			"disabled": false,
 			"idx": 0,
 			"instance": 0,
-			"name": "Dry_Leaves_in_a_Pot_0221141111_texture"
+			"name": "flowers_dry"
 		},
 		{
 			"components": [
@@ -190,44 +282,44 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 1,
+			"idx": 5,
 			"instance": 1,
-			"name": "round_shadow"
+			"name": "flowers_green"
 		}
 	],
 	"scene_anims": [
 		{
 			"anim": 4294967295,
 			"frame_duration": 50000000,
-			"name": "fade_in",
+			"name": "instable",
 			"node_anims": [
 				{
-					"anim": 2,
-					"node": 0
+					"anim": 12,
+					"node": 5
 				},
 				{
-					"anim": 3,
-					"node": 1
+					"anim": 13,
+					"node": 0
 				}
 			],
-			"t_end": 5000000000,
+			"t_end": 90000001024,
 			"t_start": 0
 		},
 		{
 			"anim": 4294967295,
 			"frame_duration": 50000000,
-			"name": "fade_out",
+			"name": "init",
 			"node_anims": [
 				{
-					"anim": 4,
+					"anim": 14,
 					"node": 0
 				},
 				{
-					"anim": 5,
-					"node": 1
+					"anim": 15,
+					"node": 5
 				}
 			],
-			"t_end": 5000000000,
+			"t_end": 100000000,
 			"t_start": 0
 		}
 	],
@@ -254,18 +346,18 @@
 			"parent": null,
 			"pos": [
 				0.0,
-				0.009999999776482582,
+				0.0,
 				0.0
 			],
 			"rot": [
-				-0.0,
+				0.0,
 				0.0,
 				0.0
 			],
 			"scl": [
-				0.25,
-				0.25,
-				0.25
+				1.0,
+				1.0,
+				1.0
 			]
 		}
 	]

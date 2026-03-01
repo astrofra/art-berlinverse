@@ -2,19 +2,8 @@
 	"anims": [
 		{
 			"anim": {
-				"bool": [
-					{
-						"keys": [
-							{
-								"t": 0,
-								"v": true
-							}
-						],
-						"target": "Enable"
-					}
-				],
 				"flags": [],
-				"t_end": 5000000000,
+				"t_end": 0,
 				"t_start": 0,
 				"vec4": [
 					{
@@ -50,23 +39,8 @@
 		},
 		{
 			"anim": {
-				"bool": [
-					{
-						"keys": [
-							{
-								"t": 0,
-								"v": true
-							},
-							{
-								"t": 5000000000,
-								"v": false
-							}
-						],
-						"target": "Enable"
-					}
-				],
 				"flags": [],
-				"t_end": 5000000000,
+				"t_end": 0,
 				"t_start": 0,
 				"vec4": [
 					{
@@ -105,9 +79,9 @@
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			116,
-			116,
-			116,
+			100,
+			100,
+			100,
 			255
 		]
 	},
@@ -183,17 +157,16 @@
 					"textures": [
 						{
 							"name": "uBaseOpacityMap",
-							"path": "props/flowers/Dry_Leaves_in_a_Pot_albedo.png",
+							"path": "props/flowers_green/Baked_BaseColor.png",
 							"stage": 0
 						},
 						{
 							"name": "uNormalMap",
-							"path": "props/flowers/Baked_Normal.png",
 							"stage": 2
 						},
 						{
 							"name": "uOcclusionRoughnessMetalnessMap",
-							"path": "props/flowers/Dry_Leaves_in_a_Pot_orm.png",
+							"path": "props/flowers_green/Meshy_AI_plant_0301073454_orm.png",
 							"stage": 1
 						}
 					],
@@ -256,7 +229,7 @@
 					"write_z": true
 				}
 			],
-			"name": "props/flowers/Mesh1.0_40.geo"
+			"name": "props/flowers_green/Mesh1.0_40.geo"
 		}
 	],
 	"scene_anims": [
@@ -292,11 +265,11 @@
 			"parent": null,
 			"pos": [
 				0.0,
-				0.0,
-				0.0
+				0.011912960559129715,
+				-1.7988069922481031e-09
 			],
 			"rot": [
-				89.99994659423828,
+				89.99996948242188,
 				0.0,
 				0.0
 			],

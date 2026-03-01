@@ -62,6 +62,29 @@
 								"v": true
 							},
 							{
+								"t": 2000000000,
+								"v": false
+							}
+						],
+						"target": "Enable"
+					}
+				],
+				"flags": [],
+				"t_end": 0,
+				"t_start": 0
+			},
+			"idx": 4
+		},
+		{
+			"anim": {
+				"bool": [
+					{
+						"keys": [
+							{
+								"t": 0,
+								"v": true
+							},
+							{
 								"t": 5000000000,
 								"v": false
 							}
@@ -83,29 +106,6 @@
 				"t_end": 0,
 				"t_start": 0
 			},
-			"idx": 4
-		},
-		{
-			"anim": {
-				"bool": [
-					{
-						"keys": [
-							{
-								"t": 0,
-								"v": true
-							},
-							{
-								"t": 2000000000,
-								"v": false
-							}
-						],
-						"target": "Enable"
-					}
-				],
-				"flags": [],
-				"t_end": 0,
-				"t_start": 0
-			},
 			"idx": 5
 		}
 	],
@@ -113,9 +113,9 @@
 		"clear_color": true,
 		"clear_z": true,
 		"color": [
-			104,
-			104,
-			104,
+			100,
+			100,
+			100,
 			255
 		]
 	},
@@ -124,15 +124,15 @@
 			255,
 			255,
 			255,
-			0
+			255
 		],
 		"brdf_map": "core/pbr/brdf.dds",
 		"current_camera": null,
 		"fog_color": [
-			0,
-			0,
-			0,
-			0
+			255,
+			255,
+			255,
+			255
 		],
 		"fog_far": 0.0,
 		"fog_near": 0.0,
@@ -160,27 +160,14 @@
 	},
 	"instances": [
 		{
-			"name": "props/flowers/Dry_Leaves_in_a_Pot_0221141111_texture.scn"
+			"name": "props/square_shadow/round_shadow.scn"
 		},
 		{
-			"name": "props/square_shadow/round_shadow.scn"
+			"name": "props/flowers_green/green_plant.scn"
 		}
 	],
 	"key_values": null,
 	"nodes": [
-		{
-			"components": [
-				0,
-				4294967295,
-				4294967295,
-				4294967295,
-				4294967295
-			],
-			"disabled": false,
-			"idx": 0,
-			"instance": 0,
-			"name": "Dry_Leaves_in_a_Pot_0221141111_texture"
-		},
 		{
 			"components": [
 				1,
@@ -190,8 +177,21 @@
 				4294967295
 			],
 			"disabled": false,
-			"idx": 1,
+			"idx": 0,
 			"instance": 1,
+			"name": "green_plant"
+		},
+		{
+			"components": [
+				0,
+				4294967295,
+				4294967295,
+				4294967295,
+				4294967295
+			],
+			"disabled": false,
+			"idx": 1,
+			"instance": 0,
 			"name": "round_shadow"
 		}
 	],
@@ -220,11 +220,11 @@
 			"node_anims": [
 				{
 					"anim": 4,
-					"node": 0
+					"node": 1
 				},
 				{
 					"anim": 5,
-					"node": 1
+					"node": 0
 				}
 			],
 			"t_end": 5000000000,
@@ -232,24 +232,6 @@
 		}
 	],
 	"transforms": [
-		{
-			"parent": null,
-			"pos": [
-				0.0,
-				0.0,
-				0.0
-			],
-			"rot": [
-				0.0,
-				0.0,
-				0.0
-			],
-			"scl": [
-				1.0,
-				1.0,
-				1.0
-			]
-		},
 		{
 			"parent": null,
 			"pos": [
@@ -266,6 +248,24 @@
 				0.25,
 				0.25,
 				0.25
+			]
+		},
+		{
+			"parent": null,
+			"pos": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"rot": [
+				0.0,
+				0.0,
+				0.0
+			],
+			"scl": [
+				1.0,
+				1.0,
+				1.0
 			]
 		}
 	]
