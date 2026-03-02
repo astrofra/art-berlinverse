@@ -19,6 +19,26 @@ SAMPLER2D(uOcclusionRoughnessMetalnessMap, 1);
 SAMPLER2D(uNormalMap, 2);
 SAMPLER2D(uSelfMap, 4);
 
+float make_triangle_wave(float i) {
+	// 1 ^   ^
+	//   |  / \
+	//   | /   \
+	//   |/     \
+	//   +-------->
+	// 0    0.5    1
+    float s; // = i >= 0 and 1 or -1;
+	if (i >= 0.0)
+		s = 1.0;
+	else
+		s = -1.0;
+    i = abs(i);
+
+    if (i < 0.5)
+        return (s * i * 2.0);
+    else
+        return (s * (1.0 - (2.0 * (i - 0.5))));
+}
+
 float map(float value, float min1, float max1, float min2, float max2) {
   return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
@@ -177,6 +197,7 @@ void main() {
 	fade_time_offset = floor(fade_time_offset / fade_cell_size) * fade_cell_size; // quantized to cell size (no smooth scroll)
 	float fade_noise = StepNoise3D(vWorldPos + fade_time_offset, fade_cell_size);
 	float fade_fx_x = clamp(uFadeFX.x * (1.0 + fade_noise * 0.25), 0.0, 1.0); // -10% to +10%
+	fade_fx_x = mix(uFadeFX.x, fade_fx_x, pow(make_triangle_wave(uFadeFX.x), 0.5));
 
 	vec4 jitter_custom = texture2D(uSelfMap, mod(gl_FragCoord.xy, vec2(64, 64)) / vec2(64, 64));
 	if (fade_fx_x * 2.0 < 1.0 - occ_rough_metal.x - (jitter_custom.x - 0.5))
