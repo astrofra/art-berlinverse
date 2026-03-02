@@ -4,6 +4,8 @@ $output vWorldPos, vNormal, vTexCoord0, vTexCoord1, vTangent, vBinormal, vLinear
 // HARFANG(R) Copyright (C) 2022 Emmanuel Julien, NWNC HARFANG. Released under GPL/LGPL/Commercial Licence, see licence.txt for details.
 #include <forward_pipeline.sh>
 
+uniform vec4 uFadeFX; // z: vertex quantization amount [0..1]
+
 mat3 normal_mat(mat4 m) {
 #if BGFX_SHADER_LANGUAGE_GLSL
 	vec3 u = normalize(vec3(m[0].x, m[1].x, m[2].x));
@@ -43,6 +45,16 @@ void main() {
 	vec4 prv_world_pos = mul(uPreviousModel[0], vtx);
 #endif // FORWARD_PIPELINE_AAA_PREPASS
 #endif // ENABLE_SKINNING
+
+	float vertex_quant_k = clamp(uFadeFX.z, 0.0, 1.0);
+	float vertex_quant_cell_size = 0.05; // 5 cm world-space cells
+	vec3 snapped_world_pos = floor(world_pos.xyz / vertex_quant_cell_size + vec3_splat(0.5)) * vertex_quant_cell_size;
+	world_pos.xyz = mix(world_pos.xyz, snapped_world_pos, vertex_quant_k);
+
+#if FORWARD_PIPELINE_AAA_PREPASS
+	vec3 snapped_prv_world_pos = floor(prv_world_pos.xyz / vertex_quant_cell_size + vec3_splat(0.5)) * vertex_quant_cell_size;
+	prv_world_pos.xyz = mix(prv_world_pos.xyz, snapped_prv_world_pos, vertex_quant_k);
+#endif // FORWARD_PIPELINE_AAA_PREPASS
 
 #if DEPTH_ONLY != 1
 	// normal

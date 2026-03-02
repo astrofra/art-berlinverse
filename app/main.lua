@@ -142,7 +142,7 @@ char_change_clock = hg.GetClock()
 for i = 1, #characters do
 	characters[i].node:Disable()
 end
-local glitch = {0.0, 0.0}
+local glitch = {0.0, 0.0, 0.0}
 
 while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	keyboard:Update()
@@ -176,12 +176,13 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 			hg.Vec4(
 				clamp(fade_char^0.5 + glitch[1] * fade_char, 0.0, 1.0), -- global fade
 				clamp((1.0 - fade_char) + glitch[2] * fade_char, 0.0, 2.0), -- inner transparency
-				1.0, 1.0)
+				clamp((1.0 - fade_char)^0.5 + glitch[3] * 10.0, 0.0, 1.0), -- mesh quantization 
+				1.0)
 			)
 	
 	local _damp = 0.05
 	local j
-	for j = 1,2 do
+	for j = 1,3 do
 		local r = 0.0
 		if (math.random() > 0.95) then
 			r = (-1 + 2.0 * math.random())

@@ -4,6 +4,6 @@
 	{"name": "uAmbient", "type": "Vec4", "value": [0.0, 1.0, 1.0, 0.0]},
 	{"name": "uSkinColor", "type": "Color", "value": [1.0, 0.815, 0.5825, 0.0]},
 	{"name": "uRadiance", "type": "Vec4", "value": [1.0, 1.0, 1.0, 1.0]},
-	{"name": "uFadeFX", "type": "Vec4", "value": [1.0, 0.0, 1.0, 1.0]}
+	{"name": "uFadeFX", "type": "Vec4", "value": [1.0, 0.0, 0.0, 1.0]}
 	]
 }
