@@ -23,6 +23,15 @@ float map(float value, float min1, float max1, float min2, float max2) {
   return min2 + (value - min1) * (max2 - min2) / (max1 - min1);
 }
 
+float Hash13(vec3 p) {
+	return fract(sin(dot(p, vec3(127.1, 311.7, 74.7))) * 43758.5453123);
+}
+
+float StepNoise3D(vec3 world_pos, float cell_size) {
+	vec3 cell = floor(world_pos / max(cell_size, 1e-6));
+	return Hash13(cell) * 2.0 - 1.0; // [-1, 1]
+}
+
 vec3 Chroma(vec3 c) {
 	float sum = max(c.x + c.y + c.z, 1e-5);
 	return c / sum;
@@ -163,8 +172,14 @@ void main() {
 	occ_rough_metal.x = clamp(occ_rough_metal.x, 0.0, 1.0);
 	occ_rough_metal.x = pow(occ_rough_metal.x, uAmbient.z);
 
+	float fade_cell_size = 0.05; // 5 cm world-space cells
+	vec3 fade_time_offset = vec3(mod(uClock.x / 4.4567, 10.0), mod(uClock.x / 3.9567, 5.0), 0.0);
+	fade_time_offset = floor(fade_time_offset / fade_cell_size) * fade_cell_size; // quantized to cell size (no smooth scroll)
+	float fade_noise = StepNoise3D(vWorldPos + fade_time_offset, fade_cell_size);
+	float fade_fx_x = clamp(uFadeFX.x * (1.0 + fade_noise * 0.25), 0.0, 1.0); // -10% to +10%
+
 	vec4 jitter_custom = texture2D(uSelfMap, mod(gl_FragCoord.xy, vec2(64, 64)) / vec2(64, 64));
-	if (uFadeFX.x * 2.0 < 1.0 - occ_rough_metal.x - (jitter_custom.x - 0.5))
+	if (fade_fx_x * 2.0 < 1.0 - occ_rough_metal.x - (jitter_custom.x - 0.5))
 	 	discard;
 
 #if DEPTH_ONLY != 1
@@ -336,7 +351,7 @@ void main() {
 	float view_facing = clamp(dot(N, V), 0.0, 1.0);
 	float side_mix = pow(1.0 - view_facing, view_mix_power);
 	vec3 final_color = mix(refracted_radiance, color, side_mix);
-	final_color = mix(refracted_radiance, final_color, uFadeFX.x);
+	final_color = mix(refracted_radiance, final_color, fade_fx_x);
 
 	// incorrectly apply gamma correction at fragment shader level in the non-AAA pipeline
 #if FORWARD_PIPELINE_AAA != 1
@@ -345,6 +360,7 @@ void main() {
 #endif // FORWARD_PIPELINE_AAA != 1
 
 	// gl_FragColor = vec4(refracted_radiance, opacity);
+	// gl_FragColor = vec4(fade_fx_x, fade_fx_x, fade_fx_x, 1.0);
 	gl_FragColor = vec4(final_color, opacity);
 #endif // FORWARD_PIPELINE_AAA_PREPASS
 #else
