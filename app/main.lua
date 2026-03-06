@@ -95,6 +95,7 @@ end
 -- Setup 2D rendering resources to display eyes textures only when needed.
 local quad_model, quad_render_state, eye_t_x, quad_matrix, tex0_program
 local quad_uniform_set_value_list, quad_uniform_set_texture_list
+local debug_mirror_single_eye = false
 if open_vr_enabled and VR_DEBUG_DISPLAY then
 	local quad_layout = hg.VertexLayout()
 	quad_layout:Begin():Add(hg.A_Position, 3, hg.AT_Float):Add(hg.A_TexCoord0, 3, hg.AT_Float):End()
@@ -102,8 +103,9 @@ if open_vr_enabled and VR_DEBUG_DISPLAY then
 	quad_model = hg.CreatePlaneModel(quad_layout, 1, 1, 1, 1)
 	quad_render_state = hg.ComputeRenderState(hg.BM_Alpha, hg.DT_Disabled, hg.FC_Disabled)
 
-	local eye_t_size = res_x / 2.5
-	eye_t_x = (res_x - 2 * eye_t_size) / 6 + eye_t_size / 2
+	debug_mirror_single_eye = use_sprite_fx
+	local eye_t_size = debug_mirror_single_eye and (res_x / 1.65) or (res_x / 2.5)
+	eye_t_x = debug_mirror_single_eye and 0 or ((res_x - 2 * eye_t_size) / 6 + eye_t_size / 2)
 	quad_matrix = hg.TransformationMat4(hg.Vec3(0, 0, 0), hg.Vec3(hg.Deg(90), hg.Deg(0), hg.Deg(0)), hg.Vec3(eye_t_size, 1, eye_t_size))
 	local sprite_program_asset = use_sprite_fx and "shaders/sprite_fx" or "shaders/sprite"
 	tex0_program = hg.LoadProgramFromAssets(sprite_program_asset)
@@ -398,10 +400,12 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 		hg.SetT(quad_matrix, hg.Vec3(eye_t_x, 0, 1))
 		hg.DrawModel(view_id, quad_model, tex0_program, quad_uniform_set_value_list, quad_uniform_set_texture_list, quad_matrix, quad_render_state)
 
-		quad_uniform_set_texture_list:clear()
-		quad_uniform_set_texture_list:push_back(hg.MakeUniformSetTexture("s_tex", hg.OpenVRGetColorTexture(vr_right_fb), 0))
-		hg.SetT(quad_matrix, hg.Vec3(-eye_t_x, 0, 1))
-		hg.DrawModel(view_id, quad_model, tex0_program, quad_uniform_set_value_list, quad_uniform_set_texture_list, quad_matrix, quad_render_state)
+		if not debug_mirror_single_eye then
+			quad_uniform_set_texture_list:clear()
+			quad_uniform_set_texture_list:push_back(hg.MakeUniformSetTexture("s_tex", hg.OpenVRGetColorTexture(vr_right_fb), 0))
+			hg.SetT(quad_matrix, hg.Vec3(-eye_t_x, 0, 1))
+			hg.DrawModel(view_id, quad_model, tex0_program, quad_uniform_set_value_list, quad_uniform_set_texture_list, quad_matrix, quad_render_state)
+		end
 	end
 
 	hg.Frame()
