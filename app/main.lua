@@ -133,7 +133,8 @@ local initial_head_pos = hg.Vec3(0, 0, 0)
 if open_vr_enabled then
 	initial_head_pos = hg.GetTranslation(camera_node:GetTransform():GetWorld())
 	initial_head_pos.y = 0.180
-	initial_head_pos.z = initial_head_pos.z - 0.0
+	initial_head_pos.z = initial_head_pos.z + 0.0
+	initial_head_pos.x = initial_head_pos.x + 0.2
 end
 
 local keyboard = hg.Keyboard('raw')
@@ -151,7 +152,7 @@ if not open_vr_enabled then
 end
 
 local spatial_audio_sources = {
-	{ asset = "audio/eerie-portal.ogg", volume = 0.5, yaw_offset = 0.0, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil },
+	{ asset = "audio/eerie-portal.ogg", volume = 0.35, yaw_offset = 0.0, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil },
 	{ asset = "audio/static.ogg", volume = 1.5, yaw_offset = math.pi, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil }
 }
 local character_change_sounds = {}
