@@ -221,8 +221,10 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	end
 
 	local actor_body_mtx = nil
+	local vr_state = nil
 	if open_vr_enabled then
 		actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, math.pi, 0))
+		vr_state = hg.OpenVRGetState(actor_body_mtx, 0.05, 1000)
 	else
 		local camera_transform = camera_node:GetTransform()
 		local camera_pos = camera_transform:GetPos()
@@ -253,9 +255,10 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	if audio_initialized then
 		local listener_pos
 		local listener_rot_y
-		if open_vr_enabled then
-			listener_pos = hg.GetT(actor_body_mtx)
-			listener_rot_y = hg.GetR(actor_body_mtx).y
+		if open_vr_enabled and vr_state ~= nil then
+			local headset_world = vr_state.head
+			listener_pos = hg.GetTranslation(headset_world)
+			listener_rot_y = hg.GetR(headset_world).y
 		else
 			local camera_world = camera_node:GetTransform():GetWorld()
 			listener_pos = hg.GetT(camera_world)
@@ -287,7 +290,6 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 
 	-- vr
 	if open_vr_enabled then
-		local vr_state = hg.OpenVRGetState(actor_body_mtx, 0.05, 1000)
 		local left, right = hg.OpenVRStateToViewState(vr_state)
 
 		-- -- Calibration
