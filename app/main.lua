@@ -119,8 +119,8 @@ scene:SetCurrentCamera(camera_node)
 local initial_head_pos = hg.Vec3(0, 0, 0)
 if open_vr_enabled then
 	initial_head_pos = hg.GetTranslation(camera_node:GetTransform():GetWorld())
-	initial_head_pos.y = 0.175
-	initial_head_pos.z = initial_head_pos.z - 2.0
+	initial_head_pos.y = 0.180
+	initial_head_pos.z = initial_head_pos.z - 0.0
 end
 
 local keyboard = hg.Keyboard('raw')
@@ -132,6 +132,26 @@ if not open_vr_enabled then
 	-- camera_node:GetTransform():SetRot(_rot)
 	camera_node:GetCamera():SetFov(math.pi / 3.75)
 	scene:SetCurrentCamera(camera_node)
+end
+
+local spatial_audio_sources = {
+	{ asset = "audio/eerie-portal.ogg", volume = 1.0, yaw_offset = 0.0, distance = 3.5, height = 0.0, sound_ref = -1, source_ref = -1, prev_pos = nil },
+	{ asset = "audio/voice-mail-messages.ogg", volume = 1.0, yaw_offset = math.pi, distance = 3.5, height = 0.0, sound_ref = -1, source_ref = -1, prev_pos = nil }
+}
+
+if audio_initialized then
+	for i = 1, #spatial_audio_sources do
+		local src = spatial_audio_sources[i]
+		src.sound_ref = hg.LoadOGGSoundAsset(src.asset)
+		if src.sound_ref == -1 then
+			print("Failed to load spatialized sound asset: " .. src.asset)
+		else
+			src.source_ref = hg.PlaySpatialized(src.sound_ref, hg.SpatializedSourceState(hg.Mat4.Identity, src.volume, hg.SR_Loop))
+			if src.source_ref == -1 then
+				print("Failed to play spatialized sound source: " .. src.asset)
+			end
+		end
+	end
 end
 
 -- Main loop
@@ -190,6 +210,40 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 		glitch[j] = (glitch[j] * (1 - _damp)) + (r * _damp)
 	end
 
+	local actor_body_mtx = nil
+	if open_vr_enabled then
+		actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, math.pi, 0))
+	end
+
+	if audio_initialized then
+		local listener_pos
+		local listener_rot_y
+		if open_vr_enabled then
+			listener_pos = hg.GetT(actor_body_mtx)
+			listener_rot_y = hg.GetR(actor_body_mtx).y
+		else
+			local camera_world = camera_node:GetTransform():GetWorld()
+			listener_pos = hg.GetT(camera_world)
+			listener_rot_y = hg.GetR(camera_world).y
+		end
+
+		local dt_sec_f = math.max(hg.time_to_sec_f(dt), 0.0001)
+		for i = 1, #spatial_audio_sources do
+			local src = spatial_audio_sources[i]
+			if src.source_ref ~= -1 then
+				local angle = listener_rot_y + src.yaw_offset
+				local src_pos = listener_pos + hg.Vec3(math.sin(angle) * src.distance, src.height, math.cos(angle) * src.distance)
+				local src_vel = hg.Vec3(0, 0, 0)
+				if src.prev_pos ~= nil then
+					src_vel = (src_pos - src.prev_pos) / dt_sec_f
+				end
+				src.prev_pos = src_pos
+
+				hg.SetSourceTransform(src.source_ref, hg.TranslationMat4(src_pos), src_vel)
+			end
+		end
+	end
+
 	scene:Update(dt)
 
 	-- rendering
@@ -198,8 +252,6 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 
 	-- vr
 	if open_vr_enabled then
-		local actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, math.pi, 0))
-
 		local vr_state = hg.OpenVRGetState(actor_body_mtx, 0.05, 1000)
 		local left, right = hg.OpenVRStateToViewState(vr_state)
 
@@ -259,6 +311,17 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 end
 
 hg.DestroyForwardPipeline(pipeline)
+if audio_initialized then
+	for i = 1, #spatial_audio_sources do
+		local src = spatial_audio_sources[i]
+		if src.source_ref ~= -1 then
+			hg.StopSource(src.source_ref)
+		end
+		if src.sound_ref ~= -1 then
+			hg.UnloadSound(src.sound_ref)
+		end
+	end
+end
 if audio_initialized and hg.AudioShutdown then
 	hg.AudioShutdown()
 end
