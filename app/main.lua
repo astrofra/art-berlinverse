@@ -115,6 +115,10 @@ end
 
 local camera_node = scene:GetNode("FPSCamera")
 scene:SetCurrentCamera(camera_node)
+local mouse = nil
+local desktop_mouse_sensitivity = 0.003
+local desktop_move_speed = 1.8
+local desktop_pitch_limit = math.rad(89)
 
 local initial_head_pos = hg.Vec3(0, 0, 0)
 if open_vr_enabled then
@@ -126,6 +130,9 @@ end
 local keyboard = hg.Keyboard('raw')
 
 if not open_vr_enabled then
+	mouse = hg.Mouse("raw")
+	hg.HideCursor()
+
 	local _rot = camera_node:GetTransform():GetRot()
 	-- _rot.y = _rot.y + math.pi / 8.0
 	-- _rot.x = _rot.x + math.pi / 16.0
@@ -166,6 +173,9 @@ local glitch = {0.0, 0.0, 0.0}
 
 while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	keyboard:Update()
+	if not open_vr_enabled and mouse ~= nil then
+		mouse:Update()
+	end
 	local dt = hg.TickClock()
 
 	-- character exposition logic
@@ -213,6 +223,31 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 	local actor_body_mtx = nil
 	if open_vr_enabled then
 		actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, math.pi, 0))
+	else
+		local camera_transform = camera_node:GetTransform()
+		local camera_pos = camera_transform:GetPos()
+		local camera_rot = camera_transform:GetRot()
+		local dt_sec = hg.time_to_sec_f(dt)
+
+		camera_rot.y = camera_rot.y + mouse:DtX() * desktop_mouse_sensitivity
+		camera_rot.x = camera_rot.x - mouse:DtY() * desktop_mouse_sensitivity
+		camera_rot.x = math.max(-desktop_pitch_limit, math.min(desktop_pitch_limit, camera_rot.x))
+
+		local move_front = 0
+		if keyboard:Down(hg.K_W) or keyboard:Down(hg.K_Z) or keyboard:Down(hg.K_Up) then
+			move_front = move_front + 1
+		end
+		if keyboard:Down(hg.K_S) or keyboard:Down(hg.K_Down) then
+			move_front = move_front - 1
+		end
+
+		if move_front ~= 0 then
+			local camera_front = hg.Normalize(hg.GetZ(hg.TransformationMat4(hg.Vec3(0, 0, 0), camera_rot)))
+			camera_pos = camera_pos + camera_front * (move_front * desktop_move_speed * dt_sec)
+		end
+
+		camera_transform:SetRot(camera_rot)
+		camera_transform:SetPos(camera_pos)
 	end
 
 	if audio_initialized then
@@ -324,6 +359,9 @@ if audio_initialized then
 end
 if audio_initialized and hg.AudioShutdown then
 	hg.AudioShutdown()
+end
+if mouse ~= nil then
+	hg.ShowCursor()
 end
 hg.RenderShutdown()
 hg.DestroyWindow(win)
