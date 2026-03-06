@@ -31,5 +31,10 @@ void main() {
 	float scanline = 0.94 + 0.06 * sin(uv.y * 920.0);
 	float intensity = clamp((edge + ghost) * scanline, 0.0, 1.0);
 
-	gl_FragColor = vec4(mix(color.rgb * intensity, vec3(c*0.25,c,c*0.25), 0.15), 1.0);
+	vec2 centered_uv = uv * 2.0 - 1.0;
+	float vignette = 1.0 - smoothstep(0.30, 1.25, dot(centered_uv, centered_uv));
+	vignette = mix(0.35, 1.0, vignette);
+
+	vec3 crt = mix(color.rgb * intensity, vec3(c * 0.25, c, c * 0.25), 0.15);
+	gl_FragColor = vec4(crt * vignette, 1.0);
 }
