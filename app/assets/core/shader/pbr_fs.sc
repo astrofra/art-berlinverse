@@ -10,6 +10,7 @@ uniform vec4 uSelfColor;
 
 uniform vec4 uAmbient; // x, y: min, max / z : pow
 uniform vec4 uRadiance;
+uniform vec4 uFog; // x = fog influence
 
 // Texture slots
 SAMPLER2D(uBaseOpacityMap, 0);
@@ -283,7 +284,8 @@ void main() {
 	color *= occ_rough_metal.x;
 	color += self.xyz;
 
-	color = DistanceFog(view, color);
+	vec3 color_fog = DistanceFog(view, color);
+	color = mix(color, color_fog, uFog.x);
 #endif // DEPTH_ONLY != 1
 
 	float opacity = base_opacity.w;

@@ -27,7 +27,7 @@ local characters = {
 }
 local character_idx = 1
 local char_change_clock = nil
-CHAR_EXPOSE_DURATION_f = 10.0
+CHAR_EXPOSE_DURATION_f = 15.0
 CHAR_EXPOSE_DURATION = hg.time_from_sec_f(CHAR_EXPOSE_DURATION_f)
 CHAR_EXPOSE_DURATION_PAD = CHAR_EXPOSE_DURATION -- hg.time_from_sec_f(CHAR_EXPOSE_DURATION_f + (CHAR_EXPOSE_DURATION_f / 10))
 
@@ -39,8 +39,9 @@ local res_x, res_y = 960, 720
 local default_window_mode = hg.WV_Fullscreen
 local open_vr_enabled = false -- desktop-first default
 local language = "en"
+local use_sprite_fx = false
 
-run_mode, res_x, res_y, default_window_mode, open_vr_enabled, language = config_gui(res_x, res_y, open_vr_enabled, language)
+run_mode, res_x, res_y, default_window_mode, open_vr_enabled, language, use_sprite_fx = config_gui(res_x, res_y, open_vr_enabled, language, use_sprite_fx)
 
 if run_mode == "cancel" then
 	os.exit()
@@ -104,11 +105,17 @@ if open_vr_enabled and VR_DEBUG_DISPLAY then
 	local eye_t_size = res_x / 2.5
 	eye_t_x = (res_x - 2 * eye_t_size) / 6 + eye_t_size / 2
 	quad_matrix = hg.TransformationMat4(hg.Vec3(0, 0, 0), hg.Vec3(hg.Deg(90), hg.Deg(0), hg.Deg(0)), hg.Vec3(eye_t_size, 1, eye_t_size))
-	tex0_program = hg.LoadProgramFromAssets("shaders/sprite")
+	local sprite_program_asset = use_sprite_fx and "shaders/sprite_fx" or "shaders/sprite"
+	tex0_program = hg.LoadProgramFromAssets(sprite_program_asset)
 
 	quad_uniform_set_value_list = hg.UniformSetValueList()
 	quad_uniform_set_value_list:clear()
-	quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("color", hg.Vec4(1, 1, 1, 1)))
+	if use_sprite_fx then
+		quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("color", hg.Vec4(0.15, 1.0, 0.2, 1.0)))
+		quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("texel_size", hg.Vec4(1 / res_x, 1 / res_y, 0, 0)))
+	else
+		quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("color", hg.Vec4(1, 1, 1, 1)))
+	end
 
 	quad_uniform_set_texture_list = hg.UniformSetTextureList()
 end
@@ -234,7 +241,7 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 
 				local change_source_ref = hg.PlaySpatialized(
 					change_sound.sound_ref,
-					hg.SpatializedSourceState(hg.TranslationMat4(source_pos), 1.0, 0)
+					hg.SpatializedSourceState(hg.TranslationMat4(source_pos), 0.5, 0)
 				)
 				if change_source_ref ~= -1 then
 					table.insert(character_change_source_refs, change_source_ref)
@@ -376,6 +383,12 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 
 	-- Display the VR eyes texture to the backbuffer
 	if VR_DEBUG_DISPLAY and open_vr_enabled then
+		if use_sprite_fx and vr_state ~= nil then
+			quad_uniform_set_value_list:clear()
+			quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("color", hg.Vec4(0.15, 1.0, 0.2, 1.0)))
+			quad_uniform_set_value_list:push_back(hg.MakeUniformSetValue("texel_size", hg.Vec4(1 / vr_state.width, 1 / vr_state.height, 0, 0)))
+		end
+
 		hg.SetViewRect(view_id, 0, 0, res_x, res_y)
 		local vs = hg.ComputeOrthographicViewState(hg.TranslationMat4(hg.Vec3(0, 0, 0)), res_y, 0.1, 100, hg.ComputeAspectRatioX(res_x, res_y))
 		hg.SetViewTransform(view_id, vs.view, vs.proj)

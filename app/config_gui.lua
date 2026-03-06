@@ -1,12 +1,15 @@
 require("utils")
 
-function config_gui(default_res_x, default_res_y, open_vr_enabled, language)
+function config_gui(default_res_x, default_res_y, open_vr_enabled, language, use_sprite_fx)
     default_res_x = default_res_x or 960
     default_res_y = default_res_y or 720
     if open_vr_enabled == nil then
         open_vr_enabled = true
     end
     language = language or "en"
+    if use_sprite_fx == nil then
+        use_sprite_fx = false
+    end
 
     local config_file = "config.ini"
     local loaded_config = read_ini(config_file)
@@ -16,6 +19,7 @@ function config_gui(default_res_x, default_res_y, open_vr_enabled, language)
         if loaded_config.default_res_y ~= nil then default_res_y = loaded_config.default_res_y end
         if loaded_config.open_vr_enabled ~= nil then open_vr_enabled = loaded_config.open_vr_enabled end
         if loaded_config.language ~= nil then language = loaded_config.language end
+        if loaded_config.use_sprite_fx ~= nil then use_sprite_fx = loaded_config.use_sprite_fx end
     end
 
     -- resolution selection
@@ -92,6 +96,7 @@ function config_gui(default_res_x, default_res_y, open_vr_enabled, language)
             hg.ImGuiText("Setup")
 
             pressed_open_vr_enabled, open_vr_enabled = hg.ImGuiCheckbox("Enable VR", open_vr_enabled)
+            pressed_use_sprite_fx, use_sprite_fx = hg.ImGuiCheckbox("Monochrome contour FX", use_sprite_fx)
 
             -- Voice over language
             hg.ImGuiSpacing()
@@ -143,10 +148,11 @@ function config_gui(default_res_x, default_res_y, open_vr_enabled, language)
         default_res_x = default_res_x,
         default_res_y = default_res_y,
         open_vr_enabled = open_vr_enabled,
-        language = language
+        language = language,
+        use_sprite_fx = use_sprite_fx
     }
 
     write_ini(config_file, saved_config)
 
-    return run_mode, default_res_x, default_res_y, default_fullscreen, open_vr_enabled, language
+    return run_mode, default_res_x, default_res_y, default_fullscreen, open_vr_enabled, language, use_sprite_fx
 end

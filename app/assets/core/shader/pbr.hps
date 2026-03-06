@@ -2,6 +2,7 @@
 	"features": ["OptionalBaseColorOpacityMap", "OptionalOcclusionRoughnessMetalnessMap", "OptionalNormalMap", "OptionalSelfMap", "OptionalSkinning"],
 	"uniforms": [
 	{"name": "uAmbient", "type": "Vec4", "value": [0.0, 1.0, 1.0, 0.0]},
-	{"name": "uRadiance", "type": "Vec4", "value": [1.0, 1.0, 1.0, 1.0]}
+	{"name": "uRadiance", "type": "Vec4", "value": [1.0, 1.0, 1.0, 1.0]},
+	{"name": "uFog", "type": "Vec4", "value": [1.0, 1.0, 1.0, 1.0]}
 	]
 }
