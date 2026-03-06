@@ -145,6 +145,9 @@ local spatial_audio_sources = {
 	{ asset = "audio/eerie-portal.ogg", volume = 0.5, yaw_offset = 0.0, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil },
 	{ asset = "audio/static.ogg", volume = 1.5, yaw_offset = math.pi, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil }
 }
+local character_change_sounds = {}
+local character_change_sound_idx = 1
+local character_change_source_refs = {}
 
 if audio_initialized then
 	for i = 1, #spatial_audio_sources do
@@ -157,6 +160,15 @@ if audio_initialized then
 			if src.source_ref == -1 then
 				print("Failed to play spatialized sound source: " .. src.asset)
 			end
+		end
+	end
+
+	for i = 0, 4 do
+		local change_asset = string.format("audio/change%d.ogg", i)
+		local change_sound_ref = hg.LoadOGGSoundAsset(change_asset)
+		character_change_sounds[#character_change_sounds + 1] = { asset = change_asset, sound_ref = change_sound_ref }
+		if change_sound_ref == -1 then
+			print("Failed to load character change sound asset: " .. change_asset)
 		end
 	end
 end
@@ -192,6 +204,50 @@ while not keyboard:Pressed(hg.K_Escape) and hg.IsWindowOpen(win) do
 		end
 
 		characters[character_idx].node:Enable()
+
+		if audio_initialized and #character_change_sounds > 0 then
+			local change_sound = character_change_sounds[character_change_sound_idx]
+			if change_sound ~= nil and change_sound.sound_ref ~= -1 then
+				local event_listener_pos
+				local event_listener_rot_y
+				if open_vr_enabled then
+					local event_actor_body_mtx = hg.TransformationMat4(initial_head_pos, hg.Vec3(0, math.pi, 0))
+					local event_vr_state = hg.OpenVRGetState(event_actor_body_mtx, 0.05, 1000)
+					local event_headset_world = event_vr_state.head
+					event_listener_pos = hg.GetTranslation(event_headset_world)
+					event_listener_rot_y = hg.GetR(event_headset_world).y
+				else
+					local camera_world = camera_node:GetTransform():GetWorld()
+					event_listener_pos = hg.GetT(camera_world)
+					event_listener_rot_y = hg.GetR(camera_world).y
+				end
+
+				local character_pos = characters[character_idx].node:GetTransform():GetPos()
+				local to_character = character_pos - event_listener_pos
+				local to_character_len_xz = math.sqrt(to_character.x * to_character.x + to_character.z * to_character.z)
+				local to_character_angle = math.atan(to_character.x, to_character.z) - event_listener_rot_y
+				local source_pos = event_listener_pos + hg.Vec3(
+					math.sin(to_character_angle) * to_character_len_xz,
+					to_character.y,
+					math.cos(to_character_angle) * to_character_len_xz
+				)
+
+				local change_source_ref = hg.PlaySpatialized(
+					change_sound.sound_ref,
+					hg.SpatializedSourceState(hg.TranslationMat4(source_pos), 1.0, 0)
+				)
+				if change_source_ref ~= -1 then
+					table.insert(character_change_source_refs, change_source_ref)
+				else
+					print("Failed to play character change sound source: " .. change_sound.asset)
+				end
+			end
+
+			character_change_sound_idx = character_change_sound_idx + 1
+			if character_change_sound_idx > #character_change_sounds then
+				character_change_sound_idx = 1
+			end
+		end
 	end
 
 	-- fade current character
@@ -356,6 +412,20 @@ if audio_initialized then
 		end
 		if src.sound_ref ~= -1 then
 			hg.UnloadSound(src.sound_ref)
+		end
+	end
+
+	for i = 1, #character_change_source_refs do
+		local source_ref = character_change_source_refs[i]
+		if source_ref ~= -1 then
+			hg.StopSource(source_ref)
+		end
+	end
+
+	for i = 1, #character_change_sounds do
+		local change_sound = character_change_sounds[i]
+		if change_sound.sound_ref ~= -1 then
+			hg.UnloadSound(change_sound.sound_ref)
 		end
 	end
 end
