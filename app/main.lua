@@ -142,8 +142,8 @@ if not open_vr_enabled then
 end
 
 local spatial_audio_sources = {
-	{ asset = "audio/eerie-portal.ogg", volume = 1.0, yaw_offset = 0.0, distance = 3.5, height = 0.0, sound_ref = -1, source_ref = -1, prev_pos = nil },
-	{ asset = "audio/voice-mail-messages.ogg", volume = 1.0, yaw_offset = math.pi, distance = 3.5, height = 0.0, sound_ref = -1, source_ref = -1, prev_pos = nil }
+	{ asset = "audio/eerie-portal.ogg", volume = 0.5, yaw_offset = 0.0, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil },
+	{ asset = "audio/static.ogg", volume = 1.5, yaw_offset = math.pi, distance = 3.5, height = 1.0, sound_ref = -1, source_ref = -1, prev_pos = nil }
 }
 
 if audio_initialized then
